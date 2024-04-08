@@ -8,7 +8,10 @@ public class MySQLConnection {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/englishforkids", "root", "01092003hau");
+            String dbUrl = System.getenv("DB_URL");
+            String dbUsername = System.getenv("DB_USERNAME");
+            String dbPassword = System.getenv("DB_PASSWORD");
+            con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

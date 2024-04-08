@@ -1,8 +1,12 @@
 package com.example.englishforkids;
 
+import com.example.englishforkids.model.Account;
+import com.example.englishforkids.model.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MainController {
+    public static User curUser;
     @FXML
     private ImageView backgroundImageView;
     @FXML
@@ -24,7 +29,7 @@ public class MainController {
     private Label lblTitle;
     public void initialize() {
         try {
-            InputStream inputStream = getClass().getResourceAsStream("/img/loginBG.png");
+            InputStream inputStream = getClass().getResourceAsStream("/img/first_bg.png");
             Image backgroundImage = new Image(inputStream);
             backgroundImageView.setImage(backgroundImage);
             btnContinue.setManaged(true);
@@ -36,16 +41,22 @@ public class MainController {
     }
 
     @FXML
-    private void handleLoginButtonClick(){
+    private void handleLoginButtonClick(ActionEvent event){
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
         try {
+            stage.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
             Parent root = loader.load();
 
-            Stage stage = new Stage();
-            stage.setTitle("Login");
-            stage.setScene(new Scene(root));
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Login");
+            loginStage.setScene(new Scene(root));
 
-            stage.show();
+            String imagePath = "/img/main_ico.png";
+            Image icon = new Image(getClass().getResource(imagePath).toExternalForm());
+            loginStage.getIcons().add(icon);
+            loginStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
