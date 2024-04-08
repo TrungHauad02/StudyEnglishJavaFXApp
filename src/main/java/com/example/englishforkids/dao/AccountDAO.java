@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class AccountDAO extends EngSysDAO<Account, String>{
-    private static final String SELECT_ACCOUNT_BY_USERNAME_PASSWORD_QUERY = "SELECT * FROM ACCOUNT WHERE Username = ?, Password = ?";
+    private static final String SELECT_ACCOUNT_BY_USERNAME_PASSWORD_QUERY = "SELECT * FROM ACCOUNT WHERE Username = ? AND Password = ?";
 
     public void insert(Account entity){
 
