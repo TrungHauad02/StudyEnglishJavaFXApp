@@ -1,6 +1,9 @@
 package com.example.englishforkids;
 
+import com.example.englishforkids.dao.RememberLoginDAO;
+import com.example.englishforkids.dao.UserDAO;
 import com.example.englishforkids.model.Account;
+import com.example.englishforkids.model.RememberLogin;
 import com.example.englishforkids.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +12,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,6 +22,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class MainController {
     public static User curUser;
@@ -42,6 +48,26 @@ public class MainController {
 
     @FXML
     private void handleLoginButtonClick(ActionEvent event){
+        InetAddress localHost = null;
+        try {
+            localHost = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+        String ipAddress = localHost.getHostAddress();
+        RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
+        RememberLogin rememberLogin = rememberLoginDAO.selectById(ipAddress);
+        if(rememberLogin != null){
+            String idAccount = rememberLogin.getIdAccount();
+            UserDAO userDAO = new UserDAO();
+            MainController.curUser = userDAO.selectByIdAccount(idAccount);
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Notify");
+            alert.setHeaderText(null);
+            alert.setContentText("Login Successfully");
+            alert.showAndWait();
+        }
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         try {
