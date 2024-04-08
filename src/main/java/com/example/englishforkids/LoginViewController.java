@@ -1,18 +1,19 @@
 package com.example.englishforkids;
 
 import com.example.englishforkids.dao.AccountDAO;
+import com.example.englishforkids.dao.RememberLoginDAO;
 import com.example.englishforkids.dao.UserDAO;
 import com.example.englishforkids.model.Account;
+import com.example.englishforkids.model.RememberLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import java.net.InetAddress;
 
 import java.io.InputStream;
+import java.net.UnknownHostException;
 
 public class LoginViewController {
     @FXML
@@ -24,7 +25,9 @@ public class LoginViewController {
     @FXML
     private Button btnLogin;
     @FXML
-    private void handleLoginButtonAction(ActionEvent event){
+    private CheckBox chkRememberLogin;
+    @FXML
+    private void handleLoginButtonAction(ActionEvent event) throws UnknownHostException {
         AccountDAO accountDAO = new AccountDAO();
         UserDAO userDAO = new UserDAO();
         String username = usernameField.getText().trim();
@@ -46,6 +49,16 @@ public class LoginViewController {
             alert.showAndWait();
         }
         MainController.curUser = userDAO.selectByIdAccount(curAccount.getIdAccount());
+
+        if(MainController.curUser != null && chkRememberLogin.isSelected()){
+            InetAddress localHost = InetAddress.getLocalHost();
+            String ip = localHost.getHostAddress();
+            String idAccount = curAccount.getIdAccount();
+            RememberLogin rememberLogin = new RememberLogin(idAccount, ip);
+            RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
+            rememberLoginDAO.insert(rememberLogin);
+        }
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Notify");
         alert.setHeaderText(null);
