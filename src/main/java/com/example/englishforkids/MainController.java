@@ -31,8 +31,6 @@ public class MainController {
     private ImageView backgroundImageView;
     @FXML
     private Button btnContinue;
-    @FXML
-    private Label lblTitle;
     public void initialize() {
         try {
             InputStream inputStream = getClass().getResourceAsStream("/img/first_bg.png");
