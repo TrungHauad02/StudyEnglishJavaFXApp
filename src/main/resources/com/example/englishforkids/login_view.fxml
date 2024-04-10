@@ -7,15 +7,14 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.image.ImageView?>
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.englishforkids.LoginViewController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.LoginViewController">
    <children>
-      <ImageView fx:id="backgroundImageView" fitWidth="763.0" fitHeight="559.0">
+      <ImageView fx:id="backgroundImageView" fitHeight="559.0" fitWidth="763.0">
       </ImageView>
       <Pane layoutX="28.0" layoutY="39.0" prefHeight="486.0" prefWidth="310.0" style="-fx-background-radius: 20; -fx-background-color: #8FC6C3; -fx-border-color: #000000; -fx-border-radius: 20;">
          <children>
@@ -61,8 +60,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogin" onAction="#handleLoginButtonAction"
-                    layoutX="97.0" layoutY="358.0" mnemonicParsing="false" style="-fx-background-color: #579EC9; -fx-border-color: #000000;" text="Đăng nhập" textFill="WHITE">
+            <Button fx:id="btnLogin" layoutX="97.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" style="-fx-background-color: #579EC9; -fx-border-color: #000000;" text="Đăng nhập" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -80,11 +78,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="209.0" layoutY="446.0" text="Đăng ký" textFill="#ffe073">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
             <Separator layoutX="19.0" layoutY="428.0" prefHeight="5.0" prefWidth="94.0" />
             <Separator layoutX="193.0" layoutY="428.0" prefHeight="5.0" prefWidth="94.0" />
             <Label layoutX="138.0" layoutY="422.0" text="Hoặc" textFill="WHITE">
@@ -92,6 +85,11 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <Button fx:id="btnSignUp" layoutX="197.0" layoutY="440.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #00000000;" text="Đăng ký" textFill="#ffe073">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>
