@@ -193,3 +193,20 @@ CREATE TABLE GRAMMARPART (
     FOREIGN KEY (IdGrammar) REFERENCES GRAMMAR(IdGrammar),
     PRIMARY KEY (IdGrammar, IdLessonPart)
 );
+
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_account
+BEFORE INSERT ON ACCOUNT
+FOR EACH ROW
+BEGIN
+    DECLARE nextId INT;
+    DECLARE newId CHAR(10);
+
+    SELECT COUNT(*) + 1 INTO nextId FROM ACCOUNT;
+    SET newId = CONCAT('acc', LPAD(nextId, 7, '0'));
+    SET NEW.IdAccount = newId;
+END//
+
+DELIMITER ;
