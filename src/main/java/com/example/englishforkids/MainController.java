@@ -62,29 +62,11 @@ public class MainController {
             UserDAO userDAO = new UserDAO();
             MainController.curUser = userDAO.selectByIdAccount(idAccount);
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Notify");
-            alert.setHeaderText(null);
-            alert.setContentText("Login Successfully");
-            alert.showAndWait();
+            MessageBox.show("Notify","Login Successfully", Alert.AlertType.CONFIRMATION);
         }
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        try {
-            stage.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
-            Parent root = loader.load();
 
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Login");
-            loginStage.setScene(new Scene(root));
-
-            String imagePath = "/img/main_ico.png";
-            Image icon = new Image(getClass().getResource(imagePath).toExternalForm());
-            loginStage.getIcons().add(icon);
-            loginStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ShowNewScene.close(event);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
+        ShowNewScene.show(loader, "Login");
     }
 }
