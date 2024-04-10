@@ -26,18 +26,19 @@ public class SignupViewController {
     @FXML
     Pane paneSignUp;
     public void initialize(){
-        String fullName = txtFullName.getText().trim();
-        String grade = txtGrade.getText().trim();
-        String school = txtSchool.getText().trim();
-        String email = txtEmail.getText().trim();
-        String username = txtUsername.getText().trim();
-        String password = txtPassword.getText().trim();
-        if (fullName.isEmpty() || grade.isEmpty() || school.isEmpty() || email.isEmpty() ||username.isEmpty() || password.isEmpty()) {
-            MessageBox.show("Error","Username and password cannot null", Alert.AlertType.ERROR);
-        }
         paneSignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            String fullName = txtFullName.getText().trim();
+            String grade = txtGrade.getText().trim();
+            String school = txtSchool.getText().trim();
+            String email = txtEmail.getText().trim();
+            String username = txtUsername.getText().trim();
+            String password = txtPassword.getText().trim();
+            if (fullName.isEmpty() || grade.isEmpty() || school.isEmpty() || email.isEmpty() ||username.isEmpty() || password.isEmpty()) {
+                MessageBox.show("Error","Username and password cannot null", Alert.AlertType.ERROR);
+            }
             Account account = new Account();
 
         });
     }
+
 }

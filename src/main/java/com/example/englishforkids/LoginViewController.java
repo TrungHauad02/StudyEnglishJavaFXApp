@@ -7,6 +7,7 @@ import com.example.englishforkids.model.Account;
 import com.example.englishforkids.model.RememberLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +29,8 @@ public class LoginViewController {
     private CheckBox chkRememberLogin;
     @FXML
     private Button btnSignUp;
+    @FXML
+    private Button btnForgetPassword;
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws UnknownHostException {
         AccountDAO accountDAO = new AccountDAO();
@@ -60,8 +63,17 @@ public class LoginViewController {
             backgroundImageView.setImage(backgroundImage);
 
             btnSignUp.setOnAction(e->{
-
+                ShowNewScene.close(e);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/signup_view.fxml"));
+                ShowNewScene.show(loader, "Sign Up");
             });
+
+            btnForgetPassword.setOnAction(e -> {
+                ShowNewScene.close(e);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/forget_password_view.fxml"));
+                ShowNewScene.show(loader, "Forget password");
+            });
+
         }catch (Exception ex){
 
         }

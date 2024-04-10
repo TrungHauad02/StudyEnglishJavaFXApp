@@ -55,11 +55,6 @@
                   </PasswordField>
                </children>
             </Pane>
-            <Label layoutX="187.0" layoutY="327.0" text="Quên mật khẩu?" textFill="#ffe073">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
             <Button fx:id="btnLogin" layoutX="97.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" style="-fx-background-color: #579EC9; -fx-border-color: #000000;" text="Đăng nhập" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -68,7 +63,7 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                </padding>
             </Button>
-            <CheckBox fx:id="chkRememberLogin" layoutX="24.0" layoutY="326.0" mnemonicParsing="false" text="Ghi nhớ đăng nhập" textFill="#ffe073">
+            <CheckBox fx:id="chkRememberLogin" layoutX="16.0" layoutY="326.0" mnemonicParsing="false" text="Ghi nhớ đăng nhập" textFill="#ffe073">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -86,6 +81,11 @@
                </font>
             </Label>
             <Button fx:id="btnSignUp" layoutX="197.0" layoutY="440.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #00000000;" text="Đăng ký" textFill="#ffe073">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnForgetPassword" layoutX="172.0" layoutY="319.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="136.0" style="-fx-background-color: #00000000;" text="Quên mật khẩu?" textFill="#ffe073">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
