@@ -12,8 +12,40 @@ import java.util.List;
 public class UserDAO extends EngSysDAO<User, String>{
     private static final String SELECT_USER_BY_ID_QUERY = "SELECT * FROM USER WHERE IdUser = ?";
     private static final String SELECT_USER_BY_ID_ACCOUNT_QUERY = "SELECT * FROM USER WHERE IdAccount = ?";
-    public void insert(User entity){
-
+    private static final String INSERT_USER_QUERY = "INSERT INTO USER(Fullname, Birthday, Status, Avatar, School, Class, Address, EmailParent) " +
+                                                "VALUE (?,?,?,?,?,?,?,?)";
+    public boolean insert(User entity){
+        Connection connection = MySQLConnection.getConnection();
+        if (connection != null) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_QUERY)) {
+                preparedStatement.setString(1, entity.getFullname());
+                preparedStatement.setDate(2, new java.sql.Date(entity.getBirthday().getTime()));
+                preparedStatement.setBoolean(3, entity.isStatus());
+                preparedStatement.setString(4, entity.getAvatar());
+                preparedStatement.setString(5, entity.getSchool());
+                preparedStatement.setString(6, entity.getGrade());
+                preparedStatement.setString(7, entity.getAddress());
+                preparedStatement.setString(8, entity.getEmailParent());
+                int rowsAffected = preparedStatement.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Insertion successful.");
+                    return true;
+                } else {
+                    System.out.println("Insertion failed.");
+                    return false;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 
     public void update(User entity){
