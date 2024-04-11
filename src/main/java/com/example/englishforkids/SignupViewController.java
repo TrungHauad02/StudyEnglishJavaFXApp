@@ -1,6 +1,8 @@
 package com.example.englishforkids;
 
+import com.example.englishforkids.dao.AccountDAO;
 import com.example.englishforkids.model.Account;
+import com.example.englishforkids.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
@@ -37,7 +39,15 @@ public class SignupViewController {
                 MessageBox.show("Error","Username and password cannot null", Alert.AlertType.ERROR);
             }
             Account account = new Account();
+            account.setUsername(username);
+            account.setPassword(password);
+            account.setRole(String.valueOf(Account.Role.STUDENT));
 
+            AccountDAO accountDAO = new AccountDAO();
+            accountDAO.insert(account);
+
+            User user = new User();
+            user.setFullname(fullName);
         });
     }
 
