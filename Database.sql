@@ -4,7 +4,7 @@ CREATE DATABASE englishforkids
 Use englishforkids;
 CREATE TABLE ACCOUNT (
     IdAccount CHAR(10) PRIMARY KEY,
-    Username VARCHAR(255) NOT NULL,
+    Username VARCHAR(255) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
     Role ENUM('admin', 'student')
 );
@@ -211,6 +211,7 @@ END//
 
 DELIMITER ;
 
+
 DELIMITER //
 
 CREATE TRIGGER before_insert_user
@@ -218,6 +219,8 @@ BEFORE INSERT ON USER
 FOR EACH ROW
 BEGIN
     DECLARE account_id CHAR(10);
+    DECLARE nextId INT;
+    DECLARE newId CHAR(10);
     
     SELECT IdAccount INTO account_id
     FROM ACCOUNT
@@ -225,6 +228,10 @@ BEGIN
     LIMIT 1;
     
     SET NEW.IdAccount = account_id;
+    
+    SELECT COUNT(*) + 1 INTO nextId FROM USER;
+    SET newId = CONCAT('user', LPAD(nextId, 6, '0'));
+    SET NEW.IdUser = newId;
 END//
 
 DELIMITER ;

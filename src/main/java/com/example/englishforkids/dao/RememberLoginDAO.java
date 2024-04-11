@@ -14,7 +14,7 @@ public class RememberLoginDAO extends EngSysDAO<RememberLogin, String>{
     private static final String SELECT_ACCOUNT_BY_IP_QUERY = "SELECT * FROM REMEMBERACCOUNT WHERE IPAddress = ?";
     private static final String INSERT_REMEMBER_LOGIN_QUERY = "INSERT INTO REMEMBERACCOUNT(IdAccount, IPAddress) VALUE (?,?)";
 
-    public void insert(RememberLogin entity){
+    public boolean insert(RememberLogin entity){
         Connection connection = MySQLConnection.getConnection();
         if (connection != null) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_REMEMBER_LOGIN_QUERY)) {
@@ -23,8 +23,10 @@ public class RememberLoginDAO extends EngSysDAO<RememberLogin, String>{
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {
                     System.out.println("Insertion successful.");
+                    return true;
                 } else {
                     System.out.println("Insertion failed.");
+                    return false;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -36,6 +38,7 @@ public class RememberLoginDAO extends EngSysDAO<RememberLogin, String>{
                 }
             }
         }
+        return false;
     }
 
     public void update(RememberLogin entity){

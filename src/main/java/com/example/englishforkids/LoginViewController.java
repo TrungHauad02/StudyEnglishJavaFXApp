@@ -55,6 +55,9 @@ public class LoginViewController {
         }
 
         MessageBox.show("Notify", "Login Successfully", Alert.AlertType.CONFIRMATION);
+        ShowNewScene.close(event);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/list_lesson_view.fxml"));
+        ShowNewScene.show(loader, "List lesson");
     }
     public void initialize() {
         try {

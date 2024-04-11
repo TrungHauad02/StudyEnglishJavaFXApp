@@ -13,7 +13,7 @@ public class AccountDAO extends EngSysDAO<Account, String>{
     private static final String SELECT_ACCOUNT_BY_USERNAME_PASSWORD_QUERY = "SELECT * FROM ACCOUNT WHERE Username = ? AND Password = ?";
     private static final String INSERT_ACCOUNT_QUERY = "INSERT INTO ACCOUNT(IdAccount, Username, Password, Role) VALUE (?,?,?,?)";
 
-    public void insert(Account entity){
+    public boolean insert(Account entity){
         Connection connection = MySQLConnection.getConnection();
         if (connection != null) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ACCOUNT_QUERY)) {
@@ -24,19 +24,23 @@ public class AccountDAO extends EngSysDAO<Account, String>{
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {
                     System.out.println("Insertion successful.");
+                    return true;
                 } else {
                     System.out.println("Insertion failed.");
+                    return false;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
+                return false;
+            }finally {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
             }
         }
+        return false;
     }
 
     public void update(Account entity){

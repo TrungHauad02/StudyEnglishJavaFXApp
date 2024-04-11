@@ -8,7 +8,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="503.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.SignupViewController">
+<?import javafx.scene.control.PasswordField?>
+<Pane fx:id="paneMain" prefHeight="503.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.SignupViewController"
+   >
    <children>
       <ImageView fitHeight="534.0" fitWidth="715.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -93,7 +96,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPassword" layoutX="11.0" layoutY="25.0" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #D9D9D9;" />
+                  <PasswordField fx:id="txtPassword" layoutX="11.0" layoutY="25.0" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #D9D9D9;" />
                </children>
             </Pane>
             <Pane fx:id="paneSignUp" layoutX="459.0" layoutY="384.0" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: #F38FB6; -fx-border-color: #000000;">
@@ -105,7 +108,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="352.0" layoutY="239.0" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: #D9D9D9; -fx-border-color: #000000;">
+            <Pane layoutX="90.0" layoutY="384.0" prefHeight="50.0" prefWidth="167.0" style="-fx-background-color: #D9D9D9; -fx-border-color: #000000;">
                <children>
                   <Label layoutX="26.0" layoutY="10.0" text="Chọn avatar" textFill="#579ec9">
                      <font>
@@ -119,6 +122,16 @@
                   <Image url="@../../../img/kid1_graphic.png" />
                </image>
             </ImageView>
+            <Pane layoutX="342.0" layoutY="236.0" prefHeight="56.0" prefWidth="289.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 15; -fx-border-radius: 15;">
+               <children>
+                  <Label layoutX="14.0" layoutY="6.0" text="Địa chỉ" textFill="#579ec9">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAddress" layoutX="11.0" layoutY="25.0" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #D9D9D9;" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

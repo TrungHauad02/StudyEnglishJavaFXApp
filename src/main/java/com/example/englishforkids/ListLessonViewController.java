@@ -1,4 +1,93 @@
 package com.example.englishforkids;
 
+import com.example.englishforkids.dao.LessonDAO;
+import com.example.englishforkids.model.Lesson;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import org.w3c.dom.events.MouseEvent;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
+
 public class ListLessonViewController {
+    @FXML
+    private Pane paneContainer;
+    public void initialize() {
+        LessonDAO lessonDAO = new LessonDAO();
+        List<Lesson> lstLesson = new LinkedList<Lesson>();
+        lstLesson = lessonDAO.selectAll();
+        double initialX = 228.0;
+        double initialY = 89.0;
+        double deltaX = 131.0;
+        double deltaY = 111.0;
+        for (int i = 0; i < lstLesson.size() || i < 12; i++) {
+            Lesson lesson = lstLesson.get(i);
+            Pane lessonPane = createLessonPane(lesson);
+
+            double layoutX = initialX + (i % 4) * deltaX;
+            double layoutY = initialY + (i / 4) * deltaY;
+
+            lessonPane.setLayoutX(layoutX);
+            lessonPane.setLayoutY(layoutY);
+
+            paneContainer.getChildren().add(lessonPane);
+        }
+    }
+
+    private Pane createLessonPane(Lesson lesson) {
+        Pane pane = new Pane();
+        pane.setPrefSize(110.0, 98.0);
+        pane.setStyle("-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;");
+
+        Label labelNumber = new Label(String.valueOf(lesson.getIdLesson()));
+        labelNumber.setLayoutX(27.0);
+        labelNumber.setLayoutY(39.0);
+        labelNumber.setTextFill(javafx.scene.paint.Color.WHITE);
+        labelNumber.setFont(new javafx.scene.text.Font("System Bold", 14.0));
+
+        ImageView imageView = new ImageView();
+        imageView.setLayoutX(-2.0);
+        imageView.setLayoutY(-3.0);
+        imageView.setFitWidth(110.0);
+        imageView.setFitHeight(70.0);
+        imageView.setPreserveRatio(true);
+        imageView.setPickOnBounds(true);
+        String imgPath = "/img/graphic_advance.png";
+        InputStream inputStream = getClass().getResourceAsStream(imgPath);
+        imageView.setImage(new Image(inputStream));
+
+        pane.getChildren().addAll(labelNumber, imageView);
+        pane.setOnMouseClicked(event -> {
+            Stage stage = (Stage) paneContainer.getScene().getWindow();
+            stage.close();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("lesson_view.fxml"));
+                Parent root = loader.load();
+
+                LessonViewController controller = loader.getController();
+                controller.setLesson(lesson);
+
+                Scene scene = new Scene(root);
+                Stage newStage = new Stage();
+                newStage.setScene(scene);
+                newStage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        return pane;
+    }
 }
+
+
+
