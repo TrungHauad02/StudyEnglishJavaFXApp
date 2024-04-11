@@ -12,6 +12,7 @@ import java.util.List;
 public class AccountDAO extends EngSysDAO<Account, String>{
     private static final String SELECT_ACCOUNT_BY_USERNAME_PASSWORD_QUERY = "SELECT * FROM ACCOUNT WHERE Username = ? AND Password = ?";
     private static final String INSERT_ACCOUNT_QUERY = "INSERT INTO ACCOUNT(IdAccount, Username, Password, Role) VALUE (?,?,?,?)";
+    private static final String UPDATE_ACCOUNT_QUERY = "UPDATE ACCOUNT SET Username = ?, Password = ?, Role = ? WHERE IdAccount = ?";
 
     public boolean insert(Account entity){
         Connection connection = MySQLConnection.getConnection();
@@ -44,7 +45,34 @@ public class AccountDAO extends EngSysDAO<Account, String>{
     }
 
     public void update(Account entity){
+        Connection connection = MySQLConnection.getConnection();
+        if (connection != null) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_ACCOUNT_QUERY)) {
+                preparedStatement.setString(1, entity.getUsername());
+                preparedStatement.setString(2, entity.getPassword());
+                preparedStatement.setString(3, entity.getRole().toString());
+                preparedStatement.setString(4, entity.getIdAccount());
 
+                int rowsAffected = preparedStatement.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Update successful.");
+                    return;
+                } else {
+                    System.out.println("No rows affected. Update failed.");
+                    return;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return;
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        return;
     }
 
     public void delete(String id){
