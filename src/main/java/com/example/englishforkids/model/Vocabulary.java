@@ -6,6 +6,8 @@ public class Vocabulary {
     private String mean;
     private byte[] image;
     private String phonetic;
+    private Vocabulary[] Antonyms;
+    private Vocabulary[] Synonyms;
 
     public String getIdVocabulary() {
         return idVocabulary;
