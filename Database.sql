@@ -210,3 +210,21 @@ BEGIN
 END//
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_user
+BEFORE INSERT ON USER
+FOR EACH ROW
+BEGIN
+    DECLARE account_id CHAR(10);
+    
+    SELECT IdAccount INTO account_id
+    FROM ACCOUNT
+    ORDER BY IdAccount DESC
+    LIMIT 1;
+    
+    SET NEW.IdAccount = account_id;
+END//
+
+DELIMITER ;
