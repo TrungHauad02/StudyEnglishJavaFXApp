@@ -235,3 +235,28 @@ BEGIN
 END//
 
 DELIMITER ;
+
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000001', 'Lesson 1', 'Description of Lesson 1', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000002', 'Lesson 2', 'Description of Lesson 2', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000003', 'Lesson 3', 'Description of Lesson 3', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000004', 'Lesson 4', 'Description of Lesson 4', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000005', 'Lesson 5', 'Description of Lesson 5', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000006', 'Lesson 6', 'Description of Lesson 6', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000007', 'Lesson 7', 'Description of Lesson 7', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000008', 'Lesson 8', 'Description of Lesson 8', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000009', 'Lesson 9', 'Description of Lesson 9', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000010', 'Lesson 10', 'Description of Lesson 10', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000011', 'Lesson 11', 'Description of Lesson 11', NOW(), 'unlock');
+INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
+VALUES ('Less000012', 'Lesson 12', 'Description of Lesson 12', NOW(), 'unlock');
