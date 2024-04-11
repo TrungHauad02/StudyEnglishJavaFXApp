@@ -18,7 +18,7 @@ CREATE TABLE USER (
     School NVARCHAR(255),
     Class NVARCHAR(255),
     Address NVARCHAR(255),
-    EmailParent VARCHAR(255),
+    EmailParent VARCHAR(255) UNIQUE,
     Score INT DEFAULT 0,
     IdAccount CHAR(10),
     FOREIGN KEY (IdAccount) REFERENCES ACCOUNT(IdAccount)
@@ -235,6 +235,11 @@ BEGIN
 END//
 
 DELIMITER ;
+
+INSERT INTO ACCOUNT (IdAccount, Username, Password, Role)
+VALUES ('acc0000001', '1', '1', 'student');
+INSERT INTO USER (IdUser, Fullname, Birthday, Status, Avatar, School, Class, Address, EmailParent, Score, IdAccount)
+VALUES ('user000001', 'Nguyễn Văn A', '2018-01-01', 1, 'avatar.jpg', 'Trường A', 'Lớp 1A', '123 Đường ABC, TP HCM', 'trunghauad02@gmail.com', 0, 'acc0000001');
 
 INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
 VALUES ('Less000001', 'Lesson 1', 'Description of Lesson 1', NOW(), 'unlock');

@@ -6,6 +6,7 @@ module com.example.englishforkids {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires mail;
 
     opens com.example.englishforkids to javafx.fxml;
     exports com.example.englishforkids;

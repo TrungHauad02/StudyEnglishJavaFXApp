@@ -12,6 +12,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
+        <my.smtp.host>smtp.gmail.com</my.smtp.host>
+        <my.smtp.port>587</my.smtp.port>
+        <my.smtp.user>trunghausender@gmail.com</my.smtp.user>
+        <my.smtp.pass>dahk vatg lofa rqli</my.smtp.pass>
     </properties>
 
     <dependencies>
@@ -93,5 +97,7 @@
                 </executions>
             </plugin>
         </plugins>
+
     </build>
+
 </project>
