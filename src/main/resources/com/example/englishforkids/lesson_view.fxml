@@ -69,7 +69,7 @@
       </Pane>
       <Pane fx:id="paneVolcabulary" layoutX="139.0" layoutY="160.0" prefHeight="70.0" prefWidth="209.0" style="-fx-background-color: #5D3A34; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-width: 5; -fx-border-color: #D4C220;">
          <children>
-            <Label layoutX="25.0" layoutY="20.0" text="Từng vựng" textFill="WHITE">
+            <Label layoutX="25.0" layoutY="20.0" text="Từ vựng" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
