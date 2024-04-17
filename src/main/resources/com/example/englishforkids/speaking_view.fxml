@@ -120,7 +120,7 @@
                   </Label>
                </children>
             </Pane>
-            <TextArea layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Lan:  How many people are there in your family?&#10;Gia đình con có bao nhiêu người?&#10;Hung: There are (four) people in my family…&#10;Dạ, nhà con có (bốn) người..." />
+            <TextArea editable="false" layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Lan:  How many people are there in your family?&#10;Gia đình con có bao nhiêu người?&#10;Hung: There are (four) people in my family…&#10;Dạ, nhà con có (bốn) người..." />
             <Button layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Listen example" />
             <Button layoutX="20.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Talk" />
             <Label alignment="CENTER" layoutX="20.0" layoutY="266.0" prefHeight="42.0" prefWidth="95.0" style="-fx-background-color: #00ff2f;" text="You're right">
