@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>EnglishForKids</artifactId>
+    <artifactId>EnglishForKids_user</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>EnglishForKids</name>
 
@@ -72,6 +72,11 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
             <version>17</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
         </dependency>
 
     </dependencies>
