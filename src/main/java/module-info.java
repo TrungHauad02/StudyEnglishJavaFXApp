@@ -8,6 +8,7 @@ module com.example.englishforkids {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires mail;
+    requires mysql.connector.j;
 
     opens com.example.englishforkids to javafx.fxml;
     exports com.example.englishforkids;
