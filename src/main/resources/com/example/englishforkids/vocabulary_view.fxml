@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.example.englishforkids.VocabularyViewController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -98,17 +99,27 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="132.0" layoutY="38.0" text="Penguin">
+            <Label fx:id="txtWord" layoutX="132.0" layoutY="38.0" text="Penguin">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="132.0" layoutY="82.0" text="Chim cánh cụt">
+            <Label fx:id="txtMean" layoutX="132.0" layoutY="82.0" text="Chim cánh cụt">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="132.0" layoutY="131.0" text="/ˈpeŋ.ɡwɪn/">
+            <Label fx:id="txtPhonetic" layoutX="132.0" layoutY="131.0" text="/ˈpeŋ.ɡwɪn/">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtSynonyms" layoutX="132.0" layoutY="182.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtAntonyms" layoutX="132.0" layoutY="237.0">
                <font>
                   <Font size="18.0" />
                </font>

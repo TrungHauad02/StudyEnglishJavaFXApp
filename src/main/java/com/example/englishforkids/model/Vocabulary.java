@@ -1,13 +1,15 @@
 package com.example.englishforkids.model;
 
+import java.util.List;
+
 public class Vocabulary {
     private String idVocabulary;
     private String word;
     private String mean;
     private byte[] image;
     private String phonetic;
-    private Vocabulary[] Antonyms;
-    private Vocabulary[] Synonyms;
+    private List<Vocabulary> Antonyms;
+    private List<Vocabulary> Synonyms;
 
     public String getIdVocabulary() {
         return idVocabulary;
@@ -47,5 +49,21 @@ public class Vocabulary {
 
     public void setPhonetic(String phonetic) {
         this.phonetic = phonetic;
+    }
+
+    public List<Vocabulary> getAntonyms() {
+        return Antonyms;
+    }
+
+    public void setAntonyms(List<Vocabulary> antonyms) {
+        Antonyms = antonyms;
+    }
+
+    public List<Vocabulary> getSynonyms() {
+        return Synonyms;
+    }
+
+    public void setSynonyms(List<Vocabulary> synonyms) {
+        Synonyms = synonyms;
     }
 }
