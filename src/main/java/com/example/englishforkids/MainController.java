@@ -23,10 +23,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class MainController {
-    public static User curUser;
     @FXML
     private ImageView backgroundImageView;
     @FXML
@@ -46,19 +47,15 @@ public class MainController {
 
     @FXML
     private void handleLoginButtonClick(ActionEvent event){
-        InetAddress localHost = null;
-        try {
-            localHost = InetAddress.getLocalHost();
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
-        String ipAddress = localHost.getHostAddress();
+        String macAddress = MacAddress.getMacAddress();
+        System.out.println(macAddress);
         RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
-        RememberLogin rememberLogin = rememberLoginDAO.selectById(ipAddress);
+        RememberLogin rememberLogin = rememberLoginDAO.selectById(macAddress);
         if(rememberLogin != null){
             String idAccount = rememberLogin.getIdAccount();
             UserDAO userDAO = new UserDAO();
-            MainController.curUser = userDAO.selectByIdAccount(idAccount);
+            CurrentUser curUser = CurrentUser.getInstance();
+            curUser.setCurrentUser(userDAO.selectByIdAccount(idAccount));
 
             MessageBox.show("Notify","Login Successfully", Alert.AlertType.CONFIRMATION);
             ShowNewScene.close(event);
@@ -71,4 +68,5 @@ public class MainController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
         ShowNewScene.show(loader, "Login");
     }
+
 }

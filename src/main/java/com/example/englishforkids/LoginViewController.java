@@ -43,13 +43,13 @@ public class LoginViewController {
         Account curAccount = accountDAO.login(username, password);
         if(curAccount == null)
             MessageBox.show("Error", "Username or password is wrong", Alert.AlertType.ERROR);
-        MainController.curUser = userDAO.selectByIdAccount(curAccount.getIdAccount());
+        CurrentUser curUser = CurrentUser.getInstance();
+        curUser.setCurrentUser(userDAO.selectByIdAccount(curAccount.getIdAccount()));
 
-        if(MainController.curUser != null && chkRememberLogin.isSelected()){
-            InetAddress localHost = InetAddress.getLocalHost();
-            String ip = localHost.getHostAddress();
+        if(curUser.getCurrentUser() != null && chkRememberLogin.isSelected()){
+            String macAddress = MacAddress.getMacAddress();
             String idAccount = curAccount.getIdAccount();
-            RememberLogin rememberLogin = new RememberLogin(idAccount, ip);
+            RememberLogin rememberLogin = new RememberLogin(idAccount, macAddress);
             RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
             rememberLoginDAO.insert(rememberLogin);
         }
