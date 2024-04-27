@@ -9,6 +9,8 @@ module com.example.englishforkids {
     requires java.sql;
     requires mail;
     requires mysql.connector.j;
+    requires java.datatransfer;
+    requires java.desktop;
 
     opens com.example.englishforkids to javafx.fxml;
     exports com.example.englishforkids;

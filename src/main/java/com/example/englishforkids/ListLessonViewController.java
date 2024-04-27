@@ -69,21 +69,9 @@ public class ListLessonViewController {
         pane.setOnMouseClicked(event -> {
             Stage stage = (Stage) paneContainer.getScene().getWindow();
             stage.close();
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("lesson_view.fxml"));
-                Parent root = loader.load();
-
-                LessonViewController controller = loader.getController();
-                controller.setLesson(lesson);
-
-                Scene scene = new Scene(root);
-                Stage newStage = new Stage();
-                newStage.setScene(scene);
-                newStage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("lesson_view.fxml"));
+            LessonViewController.curLesson = lesson;
+            ShowNewScene.show(loader, "Lesson");
         });
         return pane;
     }

@@ -7,7 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.ByteArrayInputStream;
+import java.util.Base64;
 import java.util.List;
 
 public class VocabularyViewController {
@@ -28,12 +32,15 @@ public class VocabularyViewController {
     private Button btnPrevious;
     @FXML
     private Button btnNext;
+    @FXML
+    private ImageView imgWord;
     private int index;
 
     public VocabularyViewController() {
     }
 
     public void initialize(){
+        lesson = LessonViewController.curLesson;
         index = 0;
         vocabularyDAO = new VocabularyDAO();
         lstVocabulary = vocabularyDAO.selectBySql(VocabularyDAO.SELECT_ALL_VOCABULARY_IN_LESSON_QUERY, lesson.getIdLesson());
@@ -84,15 +91,17 @@ public class VocabularyViewController {
         return stringBuilder.toString();
     }
 
-    private void loadScene(){
-        txtWord.setText(lstVocabulary.get(index).getWord());
-        txtMean.setText(lstVocabulary.get(index).getMean());
-        txtPhonetic.setText(lstVocabulary.get(index).getPhonetic());
-        String antonyms = getStringFromListVocabulary(lstVocabulary.get(index).getAntonyms());
-        String synonyms = getStringFromListVocabulary(lstVocabulary.get(index).getSynonyms());
+    private void loadScene() {
+        Vocabulary vocabulary = lstVocabulary.get(index);
+        txtWord.setText(vocabulary.getWord());
+        txtMean.setText(vocabulary.getMean());
+        txtPhonetic.setText(vocabulary.getPhonetic());
+        String antonyms = getStringFromListVocabulary(vocabulary.getAntonyms());
+        String synonyms = getStringFromListVocabulary(vocabulary.getSynonyms());
         txtAntonyms.setText(antonyms);
         txtSynonyms.setText(synonyms);
+        byte[] decodedImage = Base64.getDecoder().decode(vocabulary.getImage());
+        Image image = new Image(new ByteArrayInputStream(decodedImage));
+        imgWord.setImage(image);
     }
-
-
 }
