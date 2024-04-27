@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LessonViewController {
-    private Lesson lesson;
+    public static Lesson curLesson;
     @FXML
     private Pane paneLesson;
     @FXML
@@ -28,21 +28,8 @@ public class LessonViewController {
     private Button btnListening;
     public void initialize(){
         btnVocabulary.setOnAction(event -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("vocabulary_view.fxml"));
-                Parent root = loader.load();
-
-                VocabularyViewController controller = loader.getController();
-                controller.setLesson(lesson);
-
-                Scene scene = new Scene(root);
-                Stage newStage = new Stage();
-                newStage.setScene(scene);
-                newStage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vocabulary_view.fxml"));
+            ShowNewScene.show(loader, "Vocabulary");
         });
         btnSpeaking.setOnAction(event -> {
 
@@ -56,15 +43,5 @@ public class LessonViewController {
         btnListening.setOnAction(event -> {
 
         });
-    }
-
-    public Lesson getLesson() {
-        return lesson;
-    }
-
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
-        Label lblTile = (Label) paneLesson.getChildren().get(0);
-        lblTile.setText(lesson.getName());
     }
 }
