@@ -1,4 +1,4 @@
-package com.example.englishforkids;
+package com.example.englishforkids.feature;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;

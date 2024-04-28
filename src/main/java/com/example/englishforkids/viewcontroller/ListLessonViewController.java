@@ -1,19 +1,17 @@
-package com.example.englishforkids;
+package com.example.englishforkids.viewcontroller;
 
+import com.example.englishforkids.GetResourceController;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.dao.LessonDAO;
 import com.example.englishforkids.model.Lesson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
@@ -69,7 +67,7 @@ public class ListLessonViewController {
         pane.setOnMouseClicked(event -> {
             Stage stage = (Stage) paneContainer.getScene().getWindow();
             stage.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("lesson_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("lesson_view.fxml"));
             LessonViewController.curLesson = lesson;
             ShowNewScene.show(loader, "Lesson");
         });

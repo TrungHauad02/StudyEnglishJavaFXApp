@@ -1,12 +1,12 @@
-package com.example.englishforkids;
+package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.dao.VocabularyDAO;
 import com.example.englishforkids.model.Lesson;
 import com.example.englishforkids.model.Vocabulary;
+import com.example.englishforkids.viewcontroller.LessonViewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

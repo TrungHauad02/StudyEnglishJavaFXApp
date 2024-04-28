@@ -1,4 +1,4 @@
-package com.example.englishforkids;
+package com.example.englishforkids.feature;
 
 import com.example.englishforkids.model.User;
 
