@@ -11,6 +11,10 @@ module com.example.englishforkids {
     requires mysql.connector.j;
     requires java.datatransfer;
     requires java.desktop;
+    requires gax;
+    requires com.google.auth.oauth2;
+    requires google.cloud.speech;
+    requires protobuf.java;
 
     opens com.example.englishforkids to javafx.fxml;
     exports com.example.englishforkids;
