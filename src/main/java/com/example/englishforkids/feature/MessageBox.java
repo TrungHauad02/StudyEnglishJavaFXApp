@@ -1,4 +1,4 @@
-package com.example.englishforkids;
+package com.example.englishforkids.feature;
 
 import javafx.scene.control.Alert;
 

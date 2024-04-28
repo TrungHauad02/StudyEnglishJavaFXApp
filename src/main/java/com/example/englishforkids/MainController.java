@@ -2,30 +2,22 @@ package com.example.englishforkids;
 
 import com.example.englishforkids.dao.RememberLoginDAO;
 import com.example.englishforkids.dao.UserDAO;
-import com.example.englishforkids.model.Account;
+import com.example.englishforkids.feature.CurrentUser;
+import com.example.englishforkids.feature.MacAddress;
+import com.example.englishforkids.feature.MessageBox;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.model.RememberLogin;
-import com.example.englishforkids.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 
 public class MainController {
     @FXML

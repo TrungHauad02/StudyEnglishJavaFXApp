@@ -1,16 +1,12 @@
-package com.example.englishforkids;
+package com.example.englishforkids.viewcontroller;
 
+import com.example.englishforkids.GetResourceController;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.model.Lesson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class LessonViewController {
     public static Lesson curLesson;
@@ -28,11 +24,12 @@ public class LessonViewController {
     private Button btnListening;
     public void initialize(){
         btnVocabulary.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("vocabulary_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("vocabulary_view.fxml"));
             ShowNewScene.show(loader, "Vocabulary");
         });
         btnSpeaking.setOnAction(event -> {
-
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("speaking_view.fxml"));
+            ShowNewScene.show(loader, "Speaking");
         });
         btnGrammar.setOnAction(event -> {
 
