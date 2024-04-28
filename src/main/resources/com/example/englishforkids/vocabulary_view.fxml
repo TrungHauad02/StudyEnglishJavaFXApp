@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.example.englishforkids.VocabularyViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.VocabularyViewController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -69,7 +68,7 @@
       </Pane>
       <Pane layoutX="133.0" layoutY="188.0" prefHeight="316.0" prefWidth="482.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
          <children>
-            <ImageView fitHeight="273.0" fitWidth="200.0" layoutX="268.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgWord" fitHeight="273.0" fitWidth="200.0" layoutX="268.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/db_res/Penguin.png" />
                </image>
@@ -135,12 +134,12 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="627.0" layoutY="460.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+      <Button fx:id="btnNext" layoutX="627.0" layoutY="460.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="627.0" layoutY="406.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="627.0" layoutY="406.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

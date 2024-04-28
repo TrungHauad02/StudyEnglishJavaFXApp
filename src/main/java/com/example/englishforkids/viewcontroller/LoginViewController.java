@@ -1,8 +1,13 @@
-package com.example.englishforkids;
+package com.example.englishforkids.viewcontroller;
 
+import com.example.englishforkids.*;
 import com.example.englishforkids.dao.AccountDAO;
 import com.example.englishforkids.dao.RememberLoginDAO;
 import com.example.englishforkids.dao.UserDAO;
+import com.example.englishforkids.feature.CurrentUser;
+import com.example.englishforkids.feature.MacAddress;
+import com.example.englishforkids.feature.MessageBox;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.model.Account;
 import com.example.englishforkids.model.RememberLogin;
 import javafx.event.ActionEvent;
@@ -11,7 +16,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import java.net.InetAddress;
 
 import java.io.InputStream;
 import java.net.UnknownHostException;
@@ -43,20 +47,20 @@ public class LoginViewController {
         Account curAccount = accountDAO.login(username, password);
         if(curAccount == null)
             MessageBox.show("Error", "Username or password is wrong", Alert.AlertType.ERROR);
-        MainController.curUser = userDAO.selectByIdAccount(curAccount.getIdAccount());
+        CurrentUser curUser = CurrentUser.getInstance();
+        curUser.setCurrentUser(userDAO.selectByIdAccount(curAccount.getIdAccount()));
 
-        if(MainController.curUser != null && chkRememberLogin.isSelected()){
-            InetAddress localHost = InetAddress.getLocalHost();
-            String ip = localHost.getHostAddress();
+        if(curUser.getCurrentUser() != null && chkRememberLogin.isSelected()){
+            String macAddress = MacAddress.getMacAddress();
             String idAccount = curAccount.getIdAccount();
-            RememberLogin rememberLogin = new RememberLogin(idAccount, ip);
+            RememberLogin rememberLogin = new RememberLogin(idAccount, macAddress);
             RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
             rememberLoginDAO.insert(rememberLogin);
         }
 
         MessageBox.show("Notify", "Login Successfully", Alert.AlertType.CONFIRMATION);
         ShowNewScene.close(event);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/list_lesson_view.fxml"));
+        FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/list_lesson_view.fxml"));
         ShowNewScene.show(loader, "List lesson");
     }
     public void initialize() {
@@ -67,13 +71,13 @@ public class LoginViewController {
 
             btnSignUp.setOnAction(e->{
                 ShowNewScene.close(e);
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/signup_view.fxml"));
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/signup_view.fxml"));
                 ShowNewScene.show(loader, "Sign Up");
             });
 
             btnForgetPassword.setOnAction(e -> {
                 ShowNewScene.close(e);
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/forget_password_view.fxml"));
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/forget_password_view.fxml"));
                 ShowNewScene.show(loader, "Forget password");
             });
 

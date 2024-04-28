@@ -1,5 +1,9 @@
-package com.example.englishforkids;
+package com.example.englishforkids.viewcontroller;
 
+import com.example.englishforkids.feature.EmailUtility;
+import com.example.englishforkids.GetResourceController;
+import com.example.englishforkids.feature.MessageBox;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.dao.AccountDAO;
 import com.example.englishforkids.dao.UserDAO;
 import com.example.englishforkids.model.Account;
@@ -74,7 +78,7 @@ public class ForgetPasswordViewController {
             accountDAO.update(account);
 
             ShowNewScene.close(e);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
             ShowNewScene.show(loader, "Login");
         });
     }

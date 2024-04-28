@@ -2,31 +2,24 @@ package com.example.englishforkids;
 
 import com.example.englishforkids.dao.RememberLoginDAO;
 import com.example.englishforkids.dao.UserDAO;
-import com.example.englishforkids.model.Account;
+import com.example.englishforkids.feature.CurrentUser;
+import com.example.englishforkids.feature.MacAddress;
+import com.example.englishforkids.feature.MessageBox;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.model.RememberLogin;
-import com.example.englishforkids.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 public class MainController {
-    public static User curUser;
     @FXML
     private ImageView backgroundImageView;
     @FXML
@@ -46,19 +39,15 @@ public class MainController {
 
     @FXML
     private void handleLoginButtonClick(ActionEvent event){
-        InetAddress localHost = null;
-        try {
-            localHost = InetAddress.getLocalHost();
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
-        String ipAddress = localHost.getHostAddress();
+        String macAddress = MacAddress.getMacAddress();
+        System.out.println(macAddress);
         RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
-        RememberLogin rememberLogin = rememberLoginDAO.selectById(ipAddress);
+        RememberLogin rememberLogin = rememberLoginDAO.selectById(macAddress);
         if(rememberLogin != null){
             String idAccount = rememberLogin.getIdAccount();
             UserDAO userDAO = new UserDAO();
-            MainController.curUser = userDAO.selectByIdAccount(idAccount);
+            CurrentUser curUser = CurrentUser.getInstance();
+            curUser.setCurrentUser(userDAO.selectByIdAccount(idAccount));
 
             MessageBox.show("Notify","Login Successfully", Alert.AlertType.CONFIRMATION);
             ShowNewScene.close(event);
@@ -71,4 +60,5 @@ public class MainController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
         ShowNewScene.show(loader, "Login");
     }
+
 }

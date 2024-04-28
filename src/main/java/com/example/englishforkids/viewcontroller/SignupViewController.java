@@ -1,10 +1,12 @@
-package com.example.englishforkids;
+package com.example.englishforkids.viewcontroller;
 
+import com.example.englishforkids.GetResourceController;
+import com.example.englishforkids.feature.MessageBox;
+import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.dao.AccountDAO;
 import com.example.englishforkids.dao.UserDAO;
 import com.example.englishforkids.model.Account;
 import com.example.englishforkids.model.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -93,7 +95,7 @@ public class SignupViewController {
     private void showLoginForm(){
         Stage stage = (Stage) paneMain.getScene().getWindow();
         stage.close();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
+        FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/login_view.fxml"));
         ShowNewScene.show(loader, "Login");
     }
 
