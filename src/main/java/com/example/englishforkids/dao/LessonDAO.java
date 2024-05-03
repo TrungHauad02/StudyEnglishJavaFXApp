@@ -12,7 +12,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LessonDAO extends  EngSysDAO<Lesson, String>{
-    final private static String SELECT_ALL_LESSON_QUERY = "SELECT * FROM LESSON";
+    final private static String SELECT_ALL_LESSON_QUERY = "SELECT IdLesson, Name, Serial, Description, CreateDay, Status\n" +
+            "FROM LESSON\n" +
+            "ORDER BY Serial ASC;";
     final private static String SELECT_LESSON_BY_ID_QUERY = "SELECT * FROM LESSON";
     public boolean insert(Lesson entity){
         return false;
@@ -38,6 +40,7 @@ public class LessonDAO extends  EngSysDAO<Lesson, String>{
                     lesson.setName(resultSet.getString("Name"));
                     lesson.setDescription(resultSet.getString("Description"));
                     lesson.setCreateDay(resultSet.getDate("CreateDay"));
+                    lesson.setSerial(resultSet.getInt("Serial"));
                     lesson.setStatus(Lesson.LessonStatus.valueOf(resultSet.getString("Status").toUpperCase()));
                 }
             } catch (SQLException e) {
@@ -65,6 +68,7 @@ public class LessonDAO extends  EngSysDAO<Lesson, String>{
                     lesson.setName(resultSet.getString("Name"));
                     lesson.setDescription(resultSet.getString("Description"));
                     lesson.setCreateDay(resultSet.getDate("CreateDay"));
+                    lesson.setSerial(resultSet.getInt("Serial"));
                     lesson.setStatus(Lesson.LessonStatus.valueOf(resultSet.getString("Status").toUpperCase()));
 
                     lstLesson.add(lesson);

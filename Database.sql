@@ -36,6 +36,7 @@ CREATE TABLE REMEMBERACCOUNT (
 CREATE TABLE LESSON (
     IdLesson CHAR(10) PRIMARY KEY,
     Name VARCHAR(255),
+    Serial INT,
     Description VARCHAR(255),
     CreateDay DATETIME,
     Status ENUM('lock', 'unlock','hidden')
@@ -109,6 +110,7 @@ CREATE TABLE QUESTIONQUIZ (
     IdQuestionQuiz CHAR(10) PRIMARY KEY,
     Content VARCHAR(255),
     IdQuiz CHAR(10),
+    Image LONGBLOB,
     FOREIGN KEY (IdQuiz) REFERENCES QUIZ(IdQuiz)
 );
 
@@ -261,3 +263,16 @@ INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
 VALUES ('Less000011', 'Lesson 11', 'Description of Lesson 11', NOW(), 'unlock');
 INSERT INTO LESSON (IdLesson, Name, Description, CreateDay, Status)
 VALUES ('Less000012', 'Lesson 12', 'Description of Lesson 12', NOW(), 'unlock');
+
+Update LESSON SET Serial = 1 Where IdLesson = 'Less000001';
+Update LESSON SET Serial = 2 Where IdLesson = 'Less000002';
+Update LESSON SET Serial = 3 Where IdLesson = 'Less000003';
+Update LESSON SET Serial = 4 Where IdLesson = 'Less000004';
+Update LESSON SET Serial = 5 Where IdLesson = 'Less000005';
+Update LESSON SET Serial = 6 Where IdLesson = 'Less000006';
+Update LESSON SET Serial = 7 Where IdLesson = 'Less000007';
+Update LESSON SET Serial = 8 Where IdLesson = 'Less000008';
+Update LESSON SET Serial = 9 Where IdLesson = 'Less000009';
+Update LESSON SET Serial = 10 Where IdLesson = 'Less000010';
+Update LESSON SET Serial = 11 Where IdLesson = 'Less000011';
+Update LESSON SET Serial = 12 Where IdLesson = 'Less000012';
