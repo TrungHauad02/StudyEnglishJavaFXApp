@@ -162,9 +162,7 @@ CREATE TABLE SPEAKING(
     IdSpeaking CHAR(10) PRIMARY KEY,
     Title VARCHAR(255),
     Content TEXT,
-    Example LONGBLOB,
-    IdLessonPart CHAR(10) NOT NULL,
-    FOREIGN KEY (IdLessonPart) REFERENCES LESSONPART(IdLessonPart)
+    Example LONGBLOB
 );
 
 CREATE TABLE SPEAKINGPART (
@@ -181,9 +179,7 @@ CREATE TABLE GRAMMAR(
     Content TEXT,
     Rule TEXT,
     Image LONGBLOB,
-    Example TEXT,
-    IdLessonPart CHAR(10) NOT NULL,
-    FOREIGN KEY (IdLessonPart) REFERENCES LESSONPART(IdLessonPart)
+    Example TEXT
 );
 
 CREATE TABLE GRAMMARPART (

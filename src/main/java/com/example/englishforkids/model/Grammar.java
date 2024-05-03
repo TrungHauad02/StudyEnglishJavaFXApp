@@ -7,7 +7,6 @@ public class Grammar {
     private String rule;
     private byte[] image;
     private String example;
-    private String idLessonPart;
 
     public String getIdGrammar() {
         return idGrammar;
@@ -55,13 +54,5 @@ public class Grammar {
 
     public void setExample(String example) {
         this.example = example;
-    }
-
-    public String getIdLessonPart() {
-        return idLessonPart;
-    }
-
-    public void setIdLessonPart(String idLessonPart) {
-        this.idLessonPart = idLessonPart;
     }
 }

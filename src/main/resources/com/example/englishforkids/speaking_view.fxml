@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.englishforkids.viewcontroller.SpeakingViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.SpeakingViewController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -89,7 +88,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="137.0" layoutY="8.0" text="Family">
+                  <Label fx:id="lblTitle" layoutX="137.0" layoutY="8.0" text="Family">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -107,7 +106,7 @@
                   </Label>
                </children>
             </Pane>
-            <Label layoutX="129.0" layoutY="74.0" text=" Luyện nói phần 2 :  Số người trong gia đình vv...">
+            <Label fx:id="lblContent" layoutX="129.0" layoutY="74.0" text=" Luyện nói phần 2 :  Số người trong gia đình vv...">
                <font>
                   <Font size="14.0" />
                </font>
@@ -121,22 +120,19 @@
                   </Label>
                </children>
             </Pane>
-            <TextArea editable="false" layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Lan:  How many people are there in your family?&#10;Gia đình con có bao nhiêu người?&#10;Hung: There are (four) people in my family…&#10;Dạ, nhà con có (bốn) người..." />
-            <Button layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Listen example" />
-            <Button layoutX="20.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Talk" />
-            <Label alignment="CENTER" layoutX="20.0" layoutY="266.0" prefHeight="42.0" prefWidth="95.0" style="-fx-background-color: #00ff2f;" text="You're right">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <TextArea fx:id="txtExample" editable="false" layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Lan:  How many people are there in your family?&#10;Gia đình con có bao nhiêu người?&#10;Hung: There are (four) people in my family…&#10;Dạ, nhà con có (bốn) người..." />
+            <Button fx:id="btnListenExample" layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Listen example" />
+            <Button fx:id="btnTalk" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Talk" />
+            <Button fx:id="btnStopListen" layoutX="20.0" layoutY="192.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Stop listen" />
+            <Button fx:id="btnStopTalk" layoutX="20.0" layoutY="290.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Stop talk" />
          </children>
       </Pane>
-      <Button layoutX="633.0" layoutY="463.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+      <Button fx:id="btnNext" layoutX="633.0" layoutY="463.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="633.0" layoutY="409.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="633.0" layoutY="409.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
