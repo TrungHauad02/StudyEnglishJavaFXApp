@@ -46,7 +46,8 @@ public class ListLessonViewController {
         pane.setPrefSize(110.0, 98.0);
         pane.setStyle("-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;");
 
-        Label labelNumber = new Label(String.valueOf(lesson.getIdLesson()));
+        String nameLesson = "Lesson " + String.valueOf(lesson.getSerial());
+        Label labelNumber = new Label(nameLesson);
         labelNumber.setLayoutX(27.0);
         labelNumber.setLayoutY(39.0);
         labelNumber.setTextFill(javafx.scene.paint.Color.WHITE);

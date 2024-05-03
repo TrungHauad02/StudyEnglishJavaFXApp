@@ -8,7 +8,7 @@ public class Lesson {
     private String description;
     private Date createDay;
     private LessonStatus status;
-
+    private int serial;
     public enum LessonStatus {
         LOCK,
         UNLOCK,
@@ -53,5 +53,13 @@ public class Lesson {
 
     public void setStatus(LessonStatus status) {
         this.status = status;
+    }
+
+    public int getSerial() {
+        return serial;
+    }
+
+    public void setSerial(int serial) {
+        this.serial = serial;
     }
 }

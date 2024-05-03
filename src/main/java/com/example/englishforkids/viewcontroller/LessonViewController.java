@@ -36,7 +36,8 @@ public class LessonViewController {
             ShowNewScene.show(loader, "Grammar");
         });
         btnQuiz.setOnAction(event -> {
-
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("quiz_view.fxml"));
+            ShowNewScene.show(loader, "Quiz");
         });
         btnListening.setOnAction(event -> {
 
