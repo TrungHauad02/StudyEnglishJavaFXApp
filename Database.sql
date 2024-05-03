@@ -179,9 +179,7 @@ CREATE TABLE GRAMMAR(
     Content TEXT,
     Rule TEXT,
     Image LONGBLOB,
-    Example TEXT,
-    IdLessonPart CHAR(10) NOT NULL,
-    FOREIGN KEY (IdLessonPart) REFERENCES LESSONPART(IdLessonPart)
+    Example TEXT
 );
 
 CREATE TABLE GRAMMARPART (

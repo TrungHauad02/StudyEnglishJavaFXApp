@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -9,14 +10,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.LessonViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.GrammarViewController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/header_bg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="457.0" fitWidth="748.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="598.0" fitWidth="748.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/body_bg.png" />
          </image>
@@ -79,46 +80,74 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="26.0" layoutY="163.0" prefHeight="340.0" prefWidth="539.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
-         <children>
-            <Pane layoutX="21.0" layoutY="11.0" prefHeight="40.0" prefWidth="498.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
+      <ScrollPane layoutX="40.0" layoutY="186.0" prefHeight="286.0" prefWidth="558.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
+         <content>
+            <Pane prefHeight="569.0" prefWidth="539.0">
                <children>
-                  <Label layoutX="230.0" layoutY="7.0" text="Title">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
+                  <Pane prefHeight="36.0" prefWidth="536.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
+                     <children>
+                        <Label fx:id="lblTitle" layoutX="230.0" layoutY="7.0" prefHeight="27.0" prefWidth="54.0" text="Title" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Separator layoutY="46.400001525878906" opacity="0.56" prefHeight="0.0" prefWidth="539.0" style="-fx-background-color: #000000;" />
+                  <Pane layoutY="60.0" prefHeight="146.0" prefWidth="535.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
+                     <children>
+                        <Label layoutX="13.0" layoutY="3.0" text="Content">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtContent" layoutX="12.0" layoutY="28.0" prefHeight="106.0" prefWidth="514.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="1.0" layoutY="211.0" prefHeight="63.0" prefWidth="534.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
+                     <children>
+                        <Label layoutX="13.0" layoutY="3.0" text="Rule">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtRule" layoutX="50.0" layoutY="4.0" prefHeight="55.0" prefWidth="470.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="284.0" prefHeight="210.0" prefWidth="540.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
+                     <children>
+                        <Label layoutX="13.0" layoutY="3.0" text="Image">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imgExample" fitHeight="176.0" fitWidth="495.0" layoutX="23.0" layoutY="28.0">
+                           <image>
+                              <Image url="@../../../img/example.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="-1.0" layoutY="503.0" prefHeight="60.0" prefWidth="542.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
+                     <children>
+                        <Label layoutX="13.0" layoutY="3.0" text="Example">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtExample" layoutX="89.0" layoutY="5.0" prefHeight="50.0" prefWidth="439.0" />
+                     </children>
+                  </Pane>
                </children>
             </Pane>
-            <Separator layoutY="56.0" opacity="0.56" prefHeight="0.0" prefWidth="539.0" style="-fx-background-color: #000000;" />
-            <Pane layoutX="14.0" layoutY="71.0" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
-               <children>
-                  <Label layoutX="13.0" layoutY="3.0" text="Content">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <TextArea layoutX="24.0" layoutY="107.0" prefHeight="118.0" prefWidth="498.0" />
-            <Pane layoutX="14.0" layoutY="234.0" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
-               <children>
-                  <Label layoutX="13.0" layoutY="3.0" text="Rule">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <TextArea layoutX="24.0" layoutY="271.0" prefHeight="55.0" prefWidth="498.0" />
-         </children>
-      </Pane>
-      <Button layoutX="624.0" layoutY="461.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+         </content>
+      </ScrollPane>
+      <Button fx:id="btnNext" layoutX="624.0" layoutY="461.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="624.0" layoutY="407.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="624.0" layoutY="407.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
