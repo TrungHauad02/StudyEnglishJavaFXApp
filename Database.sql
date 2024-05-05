@@ -148,9 +148,7 @@ CREATE TABLE LISTENING(
     Title VARCHAR(255),
     Description VARCHAR(255),
     Video LONGBLOB,
-    Script TEXT,
-    IdLessonPart CHAR(10),
-    FOREIGN KEY (IdLessonPart) REFERENCES LESSONPART(IdLessonPart)
+    Script TEXT
 );
 
 CREATE TABLE LISTENINGPART (

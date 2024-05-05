@@ -40,7 +40,8 @@ public class LessonViewController {
             ShowNewScene.show(loader, "Quiz");
         });
         btnListening.setOnAction(event -> {
-
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("listening_view.fxml"));
+            ShowNewScene.show(loader, "Listening");
         });
     }
 }

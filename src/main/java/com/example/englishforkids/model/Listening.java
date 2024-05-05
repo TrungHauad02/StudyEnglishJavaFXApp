@@ -4,12 +4,10 @@ import java.util.Date;
 
 public class Listening {
     private String idListening;
-    private Date createDay;
     private String title;
     private String description;
     private byte[] video;
     private String script;
-    private String idLessonPart;
 
     public String getIdListening() {
         return idListening;
@@ -17,14 +15,6 @@ public class Listening {
 
     public void setIdListening(String idListening) {
         this.idListening = idListening;
-    }
-
-    public Date getCreateDay() {
-        return createDay;
-    }
-
-    public void setCreateDay(Date createDay) {
-        this.createDay = createDay;
     }
 
     public String getTitle() {
@@ -57,14 +47,6 @@ public class Listening {
 
     public void setScript(String script) {
         this.script = script;
-    }
-
-    public String getIdLessonPart() {
-        return idLessonPart;
-    }
-
-    public void setIdLessonPart(String idLessonPart) {
-        this.idLessonPart = idLessonPart;
     }
 }
 
