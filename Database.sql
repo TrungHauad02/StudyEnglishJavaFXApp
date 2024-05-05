@@ -109,6 +109,7 @@ CREATE TABLE QUIZPART (
 CREATE TABLE QUESTIONQUIZ (
     IdQuestionQuiz CHAR(10) PRIMARY KEY,
     Content VARCHAR(255),
+    Serial int;
     IdQuiz CHAR(10),
     Image LONGBLOB,
     FOREIGN KEY (IdQuiz) REFERENCES QUIZ(IdQuiz)
@@ -233,6 +234,33 @@ BEGIN
 END//
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_submitquiz
+BEFORE INSERT ON SUBMITQUIZ
+FOR EACH ROW
+BEGIN
+    DECLARE last_id CHAR(10);
+    DECLARE last_number INT;
+
+    SELECT IdSubmitQuiz INTO last_id
+    FROM SUBMITQUIZ
+    ORDER BY IdSubmitQuiz DESC
+    LIMIT 1;
+
+    IF last_id IS NULL THEN
+        SET NEW.IdSubmitQuiz = 'subq000001';
+    ELSE
+        SET last_number = CAST(SUBSTRING(last_id, 5) AS SIGNED) + 1;
+
+        SET NEW.IdSubmitQuiz = CONCAT('subq', LPAD(last_number, 6, '0'));
+    END IF;
+END//
+
+DELIMITER ;
+
+
 
 INSERT INTO ACCOUNT (IdAccount, Username, Password, Role)
 VALUES ('acc0000001', '1', '1', 'student');
