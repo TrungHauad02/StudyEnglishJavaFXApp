@@ -1,5 +1,7 @@
 package com.example.englishforkids.model;
 
+import java.util.List;
+
 public class Quiz {
     private String idQuiz;
     private String title;
