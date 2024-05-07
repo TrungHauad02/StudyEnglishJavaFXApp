@@ -44,6 +44,10 @@ public class QuizViewController {
     Pane paneListQuestion;
     @FXML
     ScrollPane scrollPane;
+    @FXML
+    Label lblUsername;
+    @FXML
+    Pane paneUsername;
     QuizDAO quizDAO;
     QuestionDAO questionDAO;
     AnswerDAO answerDAO;
@@ -55,6 +59,7 @@ public class QuizViewController {
     Quiz quiz;
     int indexCurrentQuestion;
     public void initialize(){
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
         quizDAO = new QuizDAO();
         questionDAO = new QuestionDAO();
         answerDAO = new AnswerDAO();

@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
@@ -33,7 +34,12 @@ public class GrammarViewController {
     @FXML
     Button btnNext;
     private int index;
+    @FXML
+    Label lblUsername;
+    @FXML
+    Pane paneUsername;
     public void initialize(){
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
         txtContent.setWrapText(true);
         txtRule.setWrapText(true);
         grammarDAO = new GrammarDAO();

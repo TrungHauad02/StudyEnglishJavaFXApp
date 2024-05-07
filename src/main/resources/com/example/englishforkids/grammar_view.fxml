@@ -10,29 +10,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.GrammarViewController">
+<Pane fx:id="paneContainer" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.GrammarViewController">
    <children>
-      <ImageView fitHeight="88.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../img/header_bg.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="598.0" fitWidth="748.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="598.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/body_bg.png" />
          </image>
       </ImageView>
-      <Label layoutX="53.0" layoutY="20.0" text="Bài học" textFill="#fca4c7">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="189.0" layoutY="20.0" text="Kho từ vựng" textFill="#faa5c7">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Pane layoutX="26.0" layoutY="88.0" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #7CCABF; -fx-border-color: #000000; -fx-background-radius: 50; -fx-border-radius: 50;">
+      <Pane fx:id="paneUsername" layoutX="26.0" layoutY="10.0" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #7CCABF; -fx-border-color: #000000; -fx-background-radius: 50; -fx-border-radius: 50;">
          <children>
             <Pane layoutY="-2.0" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9D9D9D00; -fx-background-radius: 50; -fx-border-radius: 50;">
                <children>
@@ -48,16 +33,16 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="94.0" layoutY="16.0" text="Trung Hau" textFill="WHITE">
+            <Label fx:id="lblUsername" layoutX="94.0" layoutY="16.0" text="Trung Hau" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="348.0" layoutY="467.0" />
-      <Pane layoutX="480.0" layoutY="467.0" />
-      <Pane fx:id="paneLesson" layoutX="624.0" layoutY="88.0" prefHeight="98.0" prefWidth="110.0" style="-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;">
+      <Pane layoutX="348.0" layoutY="397.0" />
+      <Pane layoutX="480.0" layoutY="397.0" />
+      <Pane fx:id="paneLesson" layoutX="624.0" layoutY="18.0" prefHeight="98.0" prefWidth="110.0" style="-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;">
          <children>
             <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Lesson" textFill="WHITE">
                <font>
@@ -71,7 +56,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneGrammar" layoutX="243.0" layoutY="88.0" prefHeight="55.0" prefWidth="355.0" style="-fx-background-color: #6AC163; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-width: 5; -fx-border-color: #FF8A54;">
+      <Pane fx:id="paneGrammar" layoutX="401.0" layoutY="18.0" prefHeight="55.0" prefWidth="197.0" style="-fx-background-color: #6AC163; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-width: 5; -fx-border-color: #FF8A54;">
          <children>
             <Label layoutX="35.0" layoutY="13.0" text="Ngữ pháp" textFill="WHITE">
                <font>
@@ -80,13 +65,13 @@
             </Label>
          </children>
       </Pane>
-      <ScrollPane layoutX="40.0" layoutY="186.0" prefHeight="286.0" prefWidth="558.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
+      <ScrollPane layoutX="40.0" layoutY="116.0" prefHeight="286.0" prefWidth="558.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
          <content>
             <Pane prefHeight="569.0" prefWidth="539.0">
                <children>
                   <Pane prefHeight="36.0" prefWidth="536.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;">
                      <children>
-                        <Label fx:id="lblTitle" layoutX="230.0" layoutY="7.0" prefHeight="27.0" prefWidth="54.0" text="Title" textAlignment="CENTER">
+                        <Label fx:id="lblTitle" layoutX="129.0" layoutY="7.0" prefHeight="27.0" prefWidth="289.0" text="Title" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -142,12 +127,12 @@
             </Pane>
          </content>
       </ScrollPane>
-      <Button fx:id="btnNext" layoutX="624.0" layoutY="461.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+      <Button fx:id="btnNext" layoutX="624.0" layoutY="391.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrevious" layoutX="624.0" layoutY="407.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="624.0" layoutY="337.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
