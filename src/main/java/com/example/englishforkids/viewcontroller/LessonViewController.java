@@ -44,20 +44,40 @@ public class LessonViewController implements ChangeMainPane {
             }
         });
         btnSpeaking.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("speaking_view.fxml"));
-            ShowNewScene.show(loader, "Speaking");
+            try {
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("speaking_view.fxml"));
+                Pane pane = loader.load();
+                mainViewController.onPaneChange(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         btnGrammar.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("grammar_view.fxml"));
-            ShowNewScene.show(loader, "Grammar");
+            try {
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("grammar_view.fxml"));
+                Pane pane = loader.load();
+                mainViewController.onPaneChange(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         btnQuiz.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("quiz_view.fxml"));
-            ShowNewScene.show(loader, "Quiz");
+            try {
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("quiz_view.fxml"));
+                Pane pane = loader.load();
+                mainViewController.onPaneChange(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         btnListening.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("listening_view.fxml"));
-            ShowNewScene.show(loader, "Listening");
+            try {
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("listening_view.fxml"));
+                Pane pane = loader.load();
+                mainViewController.onPaneChange(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 

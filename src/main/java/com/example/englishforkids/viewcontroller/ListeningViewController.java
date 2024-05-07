@@ -36,12 +36,17 @@ public class ListeningViewController {
     @FXML
     Label lblLesson;
     @FXML
-    Pane paneContainer;
+    Pane paneContainerListening;
+    @FXML
+    Label lblUsername;
+    @FXML
+    Pane paneUsername;
     private List<Listening> lstListening;
     private int index;
     ListeningDAO listeningDAO;
     private final List<DataUpdateListener> subscribers = new ArrayList<>();
     public void initialize(){
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
         txtDescription.setWrapText(true);
         Lesson lesson = LessonViewController.curLesson;
         listeningDAO = new ListeningDAO();
@@ -79,8 +84,8 @@ public class ListeningViewController {
             FXMLLoader loader = new FXMLLoader(urlPane);
             Pane pane = loader.load();
 
-            paneContainer.getChildren().clear();
-            paneContainer.getChildren().add(pane);
+            paneContainerListening.getChildren().clear();
+            paneContainerListening.getChildren().add(pane);
             DataUpdateListener controller = loader.getController();
             subscribers.clear();
             subscribers.add(controller);
