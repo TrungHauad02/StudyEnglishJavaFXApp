@@ -2,19 +2,15 @@ package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.GetResourceController;
 import com.example.englishforkids.dao.VocabularyDAO;
-import com.example.englishforkids.feature.CurrentUser;
+import com.example.englishforkids.feature.ChangeMainPane;
 import com.example.englishforkids.model.Vocabulary;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -22,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class ListVocabularyViewController {
+public class ListVocabularyViewController implements ChangeMainPane {
     @FXML
     Label lblUsername;
     @FXML
@@ -105,5 +101,10 @@ public class ListVocabularyViewController {
                 }
             }
         });
+    }
+
+    @Override
+    public void setMainViewController(MainViewController mainViewController) {
+
     }
 }
