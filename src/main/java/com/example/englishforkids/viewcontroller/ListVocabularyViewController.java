@@ -12,7 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -23,6 +25,8 @@ import java.util.List;
 public class ListVocabularyViewController {
     @FXML
     Label lblUsername;
+    @FXML
+    Pane paneUsername;
     @FXML
     TextField txtSearch;
     @FXML
@@ -40,7 +44,8 @@ public class ListVocabularyViewController {
     VocabularyDAO vocabularyDAO;
     List<Vocabulary> lstVocabulary;
     public void initialize() {
-        lblUsername.setText(CurrentUser.getInstance().getCurrentUser().getFullname());
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
+
         vocabularyDAO = new VocabularyDAO();
         lstVocabulary = vocabularyDAO.selectAll();
 

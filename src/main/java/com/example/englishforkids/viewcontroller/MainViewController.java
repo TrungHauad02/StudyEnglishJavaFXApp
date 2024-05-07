@@ -10,7 +10,9 @@ import com.example.englishforkids.model.RememberLogin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,5 +58,14 @@ public class MainViewController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void createPaneUsername(Label lblUsername, Pane paneUsername) {
+        lblUsername.setText(CurrentUser.getInstance().getCurrentUser().getFullname());
+        paneUsername.setMaxWidth(Double.MAX_VALUE);
+        Text text = new Text(lblUsername.getText());
+        text.setFont(lblUsername.getFont());
+        double minWidth = text.getBoundsInLocal().getWidth();
+        paneUsername.setPrefWidth(minWidth + 110);
     }
 }

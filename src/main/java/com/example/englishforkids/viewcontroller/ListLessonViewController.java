@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.InputStream;
@@ -24,13 +25,18 @@ import java.util.List;
 public class ListLessonViewController {
     @FXML
     private Pane paneContainer;
-
+    @FXML
+    Label lblUsername;
+    @FXML
+    Pane paneUsername;
     public void initialize() {
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
+
         LessonDAO lessonDAO = new LessonDAO();
         List<Lesson> lstLesson = new LinkedList<Lesson>();
         lstLesson = lessonDAO.selectAll();
         double initialX = 228.0;
-        double initialY = 19.0;
+        double initialY = 69.0;
         double deltaX = 131.0;
         double deltaY = 111.0;
         for (int i = 0; i < lstLesson.size() || i < 12; i++) {

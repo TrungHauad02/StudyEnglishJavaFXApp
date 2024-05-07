@@ -98,5 +98,4 @@ public class SignupViewController {
         FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
         ShowNewScene.show(loader, "Login");
     }
-
 }
