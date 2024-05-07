@@ -1,17 +1,27 @@
 package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.GetResourceController;
+import com.example.englishforkids.MainController;
+import com.example.englishforkids.feature.ChangeMainPane;
 import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.model.Lesson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-public class LessonViewController {
+import java.io.IOException;
+
+public class LessonViewController implements ChangeMainPane {
+    private MainViewController mainViewController;
     public static Lesson curLesson;
     @FXML
     private Pane paneLesson;
+    @FXML
+    Pane paneUsername;
+    @FXML
+    Label lblUsername;
     @FXML
     private Button btnVocabulary;
     @FXML
@@ -23,9 +33,15 @@ public class LessonViewController {
     @FXML
     private Button btnListening;
     public void initialize(){
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
         btnVocabulary.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("vocabulary_lesson_view.fxml"));
-            ShowNewScene.show(loader, "Vocabulary");
+            try {
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("vocabulary_lesson_view.fxml"));
+                Pane pane = loader.load();
+                mainViewController.onPaneChange(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         btnSpeaking.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("speaking_view.fxml"));
@@ -43,5 +59,10 @@ public class LessonViewController {
             FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("listening_view.fxml"));
             ShowNewScene.show(loader, "Listening");
         });
+    }
+
+    @Override
+    public void setMainViewController(MainViewController mainViewController){
+        this.mainViewController = mainViewController;
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
@@ -34,11 +35,15 @@ public class VocabularyLessonViewController {
     @FXML
     private ImageView imgWord;
     private int index;
-
+    @FXML
+    Label lblUsername;
+    @FXML
+    Pane paneUsername;
     public VocabularyLessonViewController() {
     }
 
     public void initialize(){
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
         lesson = LessonViewController.curLesson;
         index = 0;
         vocabularyDAO = new VocabularyDAO();

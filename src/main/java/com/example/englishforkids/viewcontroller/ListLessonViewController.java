@@ -1,36 +1,37 @@
 package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.GetResourceController;
-import com.example.englishforkids.dao.RememberLoginDAO;
-import com.example.englishforkids.feature.CurrentUser;
-import com.example.englishforkids.feature.MacAddress;
-import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.dao.LessonDAO;
+import com.example.englishforkids.feature.ChangeMainPane;
 import com.example.englishforkids.model.Lesson;
-import com.example.englishforkids.model.RememberLogin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ListLessonViewController {
+public class ListLessonViewController implements ChangeMainPane {
+    private MainViewController mainViewController;
     @FXML
     private Pane paneContainer;
-
+    @FXML
+    Label lblUsername;
+    @FXML
+    Pane paneUsername;
     public void initialize() {
+        MainViewController.createPaneUsername(lblUsername, paneUsername);
+
         LessonDAO lessonDAO = new LessonDAO();
         List<Lesson> lstLesson = new LinkedList<Lesson>();
         lstLesson = lessonDAO.selectAll();
         double initialX = 228.0;
-        double initialY = 19.0;
+        double initialY = 69.0;
         double deltaX = 131.0;
         double deltaY = 111.0;
         for (int i = 0; i < lstLesson.size() || i < 12; i++) {
@@ -45,6 +46,10 @@ public class ListLessonViewController {
 
             paneContainer.getChildren().add(lessonPane);
         }
+    }
+    @Override
+    public void setMainViewController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
     }
 
     private Pane createLessonPane(Lesson lesson) {
@@ -72,11 +77,16 @@ public class ListLessonViewController {
 
         pane.getChildren().addAll(labelNumber, imageView);
         pane.setOnMouseClicked(event -> {
-            Stage stage = (Stage) paneContainer.getScene().getWindow();
-            stage.close();
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("lesson_view.fxml"));
-            LessonViewController.curLesson = lesson;
-            ShowNewScene.show(loader, "Lesson");
+            try {
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("lesson_view.fxml"));
+                LessonViewController.curLesson = lesson;
+                Pane newPane = loader.load();
+                ChangeMainPane controller = loader.getController();
+                controller.setMainViewController(this.mainViewController);
+                mainViewController.onPaneChange(newPane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         return pane;
     }

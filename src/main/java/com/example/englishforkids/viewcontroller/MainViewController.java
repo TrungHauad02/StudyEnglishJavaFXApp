@@ -2,20 +2,19 @@ package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.GetResourceController;
 import com.example.englishforkids.dao.RememberLoginDAO;
-import com.example.englishforkids.feature.CurrentUser;
-import com.example.englishforkids.feature.DataUpdateListener;
-import com.example.englishforkids.feature.MacAddress;
-import com.example.englishforkids.feature.ShowNewScene;
+import com.example.englishforkids.feature.*;
 import com.example.englishforkids.model.RememberLogin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
 
-public class MainViewController {
+public class MainViewController implements PaneChangeListener {
     @FXML
     Pane paneMain;
     @FXML
@@ -51,10 +50,25 @@ public class MainViewController {
         try {
             FXMLLoader loader = new FXMLLoader(urlPane);
             Pane pane = loader.load();
+            ChangeMainPane controller = loader.getController();
+            controller.setMainViewController(this);
             paneMain.getChildren().clear();
             paneMain.getChildren().add(pane);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void createPaneUsername(Label lblUsername, Pane paneUsername) {
+        lblUsername.setText(CurrentUser.getInstance().getCurrentUser().getFullname());
+        paneUsername.setMaxWidth(Double.MAX_VALUE);
+        Text text = new Text(lblUsername.getText());
+        text.setFont(lblUsername.getFont());
+        double minWidth = text.getBoundsInLocal().getWidth();
+        paneUsername.setPrefWidth(minWidth + 110);
+    }
+    @Override
+    public void onPaneChange(Pane newPane) {
+        paneMain.getChildren().clear();
+        paneMain.getChildren().add(newPane);
     }
 }
