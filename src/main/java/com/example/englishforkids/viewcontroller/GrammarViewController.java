@@ -38,8 +38,10 @@ public class GrammarViewController {
     Label lblUsername;
     @FXML
     Pane paneUsername;
+    @FXML
+    ImageView imgAvatar;
     public void initialize(){
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername, imgAvatar);
         txtContent.setWrapText(true);
         txtRule.setWrapText(true);
         grammarDAO = new GrammarDAO();

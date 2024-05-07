@@ -39,11 +39,13 @@ public class VocabularyLessonViewController {
     Label lblUsername;
     @FXML
     Pane paneUsername;
+    @FXML
+    ImageView imgAvatar;
     public VocabularyLessonViewController() {
     }
 
     public void initialize(){
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername,imgAvatar);
         lesson = LessonViewController.curLesson;
         index = 0;
         vocabularyDAO = new VocabularyDAO();

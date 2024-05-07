@@ -60,8 +60,8 @@ public class LoginViewController {
 
         MessageBox.show("Notify", "Login Successfully", Alert.AlertType.CONFIRMATION);
         ShowNewScene.close(event);
-        FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/list_lesson_view.fxml"));
-        ShowNewScene.show(loader, "List lesson");
+        FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("main_view.fxml"));
+        ShowNewScene.show(loader, "English for kids");
     }
     public void initialize() {
         try {

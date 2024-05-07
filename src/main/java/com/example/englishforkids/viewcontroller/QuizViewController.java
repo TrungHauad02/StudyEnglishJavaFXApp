@@ -48,6 +48,8 @@ public class QuizViewController {
     Label lblUsername;
     @FXML
     Pane paneUsername;
+    @FXML
+    ImageView imgAvatar;
     QuizDAO quizDAO;
     QuestionDAO questionDAO;
     AnswerDAO answerDAO;
@@ -59,7 +61,7 @@ public class QuizViewController {
     Quiz quiz;
     int indexCurrentQuestion;
     public void initialize(){
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername, imgAvatar);
         quizDAO = new QuizDAO();
         questionDAO = new QuestionDAO();
         answerDAO = new AnswerDAO();

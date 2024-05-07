@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -58,13 +60,16 @@ public class MainViewController implements PaneChangeListener {
             throw new RuntimeException(e);
         }
     }
-    public static void createPaneUsername(Label lblUsername, Pane paneUsername) {
+    public static void createPaneUsername(Label lblUsername, Pane paneUsername, ImageView imgAvatar) {
         lblUsername.setText(CurrentUser.getInstance().getCurrentUser().getFullname());
         paneUsername.setMaxWidth(Double.MAX_VALUE);
         Text text = new Text(lblUsername.getText());
         text.setFont(lblUsername.getFont());
         double minWidth = text.getBoundsInLocal().getWidth();
         paneUsername.setPrefWidth(minWidth + 110);
+        String avatarURL = "avatar/" + CurrentUser.getInstance().getCurrentUser().getAvatar();
+        Image image = new Image(String.valueOf(GetResourceController.getFXMLResourcePath(avatarURL)));
+        imgAvatar.setImage(image);
     }
     @Override
     public void onPaneChange(Pane newPane) {

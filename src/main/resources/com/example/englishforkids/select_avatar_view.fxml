@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneMain" prefHeight="503.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.SelectAvatarViewController">
+   <children>
+      <ImageView fitHeight="507.0" fitWidth="715.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/login_bg.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="32.0" layoutY="14.0" prefHeight="448.0" prefWidth="463.0" style="-fx-background-color: #8FC6C3; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #000000;">
+         <children>
+            <Pane layoutX="151.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #39A6E8; -fx-background-radius: 15; -fx-border-color: #000000; -fx-border-radius: 15;">
+               <children>
+                  <Label layoutX="32.0" layoutY="8.0" text="Chọn avatar" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="123.0" fitWidth="113.0" layoutX="-23.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/kid1_graphic.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar1" fitHeight="100.0" fitWidth="100.0" layoutX="53.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar4" fitHeight="100.0" fitWidth="100.0" layoutX="53.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_4.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar5" fitHeight="100.0" fitWidth="100.0" layoutX="188.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_5.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar3" fitHeight="100.0" fitWidth="100.0" layoutX="317.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar2" fitHeight="100.0" fitWidth="100.0" layoutX="188.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar6" fitHeight="100.0" fitWidth="100.0" layoutX="317.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_6.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar7" fitHeight="100.0" fitWidth="100.0" layoutX="56.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_7.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar8" fitHeight="100.0" fitWidth="100.0" layoutX="191.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_8.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAvatar9" fitHeight="100.0" fitWidth="100.0" layoutX="320.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@avatar/avatar_9.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>

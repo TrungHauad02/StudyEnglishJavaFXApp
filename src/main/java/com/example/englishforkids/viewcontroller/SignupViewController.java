@@ -9,17 +9,18 @@ import com.example.englishforkids.model.Account;
 import com.example.englishforkids.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import javafx.scene.Parent;
 
 public class SignupViewController {
     @FXML
@@ -42,10 +43,17 @@ public class SignupViewController {
     Pane paneSignUp;
     @FXML
     Pane paneMain;
-
+    @FXML
+    Button btnChooseAvatar;
+    @FXML
+    Label lblAvatar;
+    String avatar = "";
     public void initialize(){
         paneSignUp.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             signUp();
+        });
+        btnChooseAvatar.setOnAction(event -> {
+            chooseAvatar();
         });
     }
 
@@ -59,7 +67,8 @@ public class SignupViewController {
         String password = txtPassword.getText().trim();
         LocalDate birthDate = dtpBirth.getValue();
         if (fullName.isEmpty() || grade.isEmpty() || school.isEmpty() || email.isEmpty()
-                || username.isEmpty() || password.isEmpty() || birthDate == null || address.isEmpty()) {
+                || username.isEmpty() || password.isEmpty() || birthDate == null || address.isEmpty()
+            || avatar.isEmpty()) {
             MessageBox.show("Lỗi","Hãy điền đầy đủ thông tin", Alert.AlertType.ERROR);
             return;
         }
@@ -79,6 +88,7 @@ public class SignupViewController {
             user.setStatus(true);
             user.setAddress(address);
             user.setBirthday(Date.from(birthDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            user.setAvatar(avatar);
 
             UserDAO userDAO = new UserDAO();
             if(userDAO.insert(user)){
@@ -97,5 +107,23 @@ public class SignupViewController {
         stage.close();
         FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
         ShowNewScene.show(loader, "Login");
+    }
+    private void chooseAvatar(){
+        try {
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("select_avatar_view.fxml"));
+            Parent root = loader.load();
+            SelectAvatarViewController controller = loader.getController();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Choose Avatar");
+            Scene scene = new Scene(root, 531, 503);
+            dialogStage.setScene(scene);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.showAndWait();
+            avatar = controller.getSelectedAvatarFileName();
+            lblAvatar.setText(avatar);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
