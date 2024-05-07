@@ -3,7 +3,6 @@ package com.example.englishforkids.viewcontroller;
 import com.example.englishforkids.feature.DataUpdateListener;
 import com.example.englishforkids.model.Listening;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.media.Media;
@@ -14,10 +13,8 @@ import javafx.scene.text.TextFlow;
 import javafx.scene.text.Text;
 
 import java.io.*;
-import java.net.URL;
 import java.util.Base64;
 import java.util.List;
-import java.util.ResourceBundle;
 
 // subscribers in Pattern Observer
 public class ListeningVideoViewController implements DataUpdateListener {
