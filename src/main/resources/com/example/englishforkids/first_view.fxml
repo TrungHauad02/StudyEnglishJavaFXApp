@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.englishforkids.MainController">
+    <StackPane alignment="BOTTOM_RIGHT">
+        <ImageView fx:id="backgroundImageView">
+        </ImageView>
+
+        <Label fx:id="lblTitle" text="ỨNG DỤNG &#10;HỌC TIẾNG ANH HIỆU QUẢ CHO TRẺ" StackPane.alignment="CENTER">
+            <font>
+                <Font name="Inter" size="32" />
+            </font>
+            <style>
+                -fx-font-weight: bold;
+                -fx-text-alignment: center;
+            </style>
+        </Label>
+
+        <Button text="" fx:id="btnContinue" visible="true" onAction="#handleLoginButtonClick">
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+            <style>
+                -fx-background-color: rgba(0, 0, 0, 0);
+            </style>
+        </Button>
+    </StackPane>
+</VBox>

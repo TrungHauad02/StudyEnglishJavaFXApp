@@ -1,37 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.englishforkids.MainController">
-    <StackPane alignment="BOTTOM_RIGHT">
-        <ImageView fx:id="backgroundImageView">
-        </ImageView>
 
-        <Label fx:id="lblTitle" text="ỨNG DỤNG &#10;HỌC TIẾNG ANH HIỆU QUẢ CHO TRẺ" StackPane.alignment="CENTER">
-            <font>
-                <Font name="Inter" size="32" />
-            </font>
-            <style>
-                -fx-font-weight: bold;
-                -fx-text-alignment: center;
-            </style>
-        </Label>
-
-        <Button text="" fx:id="btnContinue" visible="true" onAction="#handleLoginButtonClick">
-            <padding>
-                <Insets top="25" right="25" bottom="25" left="25"/>
-            </padding>
-            <style>
-                -fx-background-color: rgba(0, 0, 0, 0);
-            </style>
-        </Button>
-    </StackPane>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.MainViewController">
+   <children>
+      <ImageView fitHeight="88.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/header_bg.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="paneMain" layoutY="70.0">
+         <children>
+            <ImageView fitHeight="457.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/body_bg.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="26.0" layoutY="18.0" prefHeight="50.0" prefWidth="189.0" style="-fx-background-color: #7CCABF; -fx-border-color: #000000; -fx-background-radius: 50; -fx-border-radius: 50;">
+               <children>
+                  <Pane layoutY="-2.0" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9D9D9D00; -fx-background-radius: 50; -fx-border-radius: 50;">
+                     <children>
+                        <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../img/avatar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label layoutX="55.0" layoutY="15.0" text="User:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="94.0" layoutY="16.0" text="Trung Hau" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="348.0" layoutY="397.0" />
+            <Pane layoutX="480.0" layoutY="397.0" />
+            <Button fx:id="btnNext" layoutX="455.0" layoutY="401.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnPrevious" layoutX="326.0" layoutY="401.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="btnLogout" layoutX="616.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: #00000000;" text="Đăng xuất" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnListLesson" layoutX="36.0" layoutY="13.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #00000000;" text="Bài học" textFill="#fca4c7">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnListVocabulary" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #00000000;" text="Kho từ vựng" textFill="#fca4c7">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

@@ -95,7 +95,7 @@ public class SignupViewController {
     private void showLoginForm(){
         Stage stage = (Stage) paneMain.getScene().getWindow();
         stage.close();
-        FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/login_view.fxml"));
+        FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
         ShowNewScene.show(loader, "Login");
     }
 

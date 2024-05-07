@@ -24,7 +24,7 @@ public class LessonViewController {
     private Button btnListening;
     public void initialize(){
         btnVocabulary.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("vocabulary_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("vocabulary_lesson_view.fxml"));
             ShowNewScene.show(loader, "Vocabulary");
         });
         btnSpeaking.setOnAction(event -> {
