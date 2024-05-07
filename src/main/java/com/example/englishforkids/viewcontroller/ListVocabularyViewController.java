@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -23,6 +24,8 @@ public class ListVocabularyViewController implements ChangeMainPane {
     Label lblUsername;
     @FXML
     Pane paneUsername;
+    @FXML
+    ImageView imgAvatar;
     @FXML
     TextField txtSearch;
     @FXML
@@ -40,7 +43,7 @@ public class ListVocabularyViewController implements ChangeMainPane {
     VocabularyDAO vocabularyDAO;
     List<Vocabulary> lstVocabulary;
     public void initialize() {
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername, imgAvatar);
 
         vocabularyDAO = new VocabularyDAO();
         lstVocabulary = vocabularyDAO.selectAll();

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -23,6 +24,8 @@ public class LessonViewController implements ChangeMainPane {
     @FXML
     Label lblUsername;
     @FXML
+    ImageView imgAvatar;
+    @FXML
     private Button btnVocabulary;
     @FXML
     private Button btnSpeaking;
@@ -33,7 +36,7 @@ public class LessonViewController implements ChangeMainPane {
     @FXML
     private Button btnListening;
     public void initialize(){
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername,imgAvatar);
         btnVocabulary.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("vocabulary_lesson_view.fxml"));

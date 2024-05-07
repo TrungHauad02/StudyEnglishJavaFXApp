@@ -1,6 +1,5 @@
 package com.example.englishforkids;
 
-import com.example.englishforkids.model.Account;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

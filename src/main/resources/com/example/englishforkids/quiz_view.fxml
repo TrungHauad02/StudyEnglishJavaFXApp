@@ -22,9 +22,9 @@
          <children>
             <Pane layoutY="-2.0" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #9D9D9D00; -fx-background-radius: 50; -fx-border-radius: 50;">
                <children>
-                  <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgAvatar" fitHeight="55.0" fitWidth="55.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../img/avatar.png" />
+                        <Image url="@avatar/avatar_1.png" />
                      </image>
                   </ImageView>
                </children>

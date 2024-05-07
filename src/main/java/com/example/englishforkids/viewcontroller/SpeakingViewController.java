@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 
@@ -50,13 +51,15 @@ public class SpeakingViewController {
     Label lblUsername;
     @FXML
     Pane paneUsername;
+    @FXML
+    ImageView imgAvatar;
     private AudioClip audioClip;
 //    private AudioInputStream audioStream;
 //    private ByteArrayOutputStream audioBuffer;
 //    private TargetDataLine targetLine;
 //    private SpeechClient speechClient;
     public void initialize(){
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername,imgAvatar);
         index = 0;
         loadScene();
         btnListenExample.setOnAction(event -> {

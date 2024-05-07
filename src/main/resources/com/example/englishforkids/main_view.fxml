@@ -16,7 +16,7 @@
       </ImageView>
       <Pane fx:id="paneMain" layoutY="70.0">
          <children>
-            <ImageView fitHeight="457.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgAvatar" fitHeight="457.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/body_bg.png" />
                </image>
@@ -27,7 +27,7 @@
                      <children>
                         <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../img/avatar.png" />
+                              <Image url="@avatar/avatar_1.png" />
                            </image>
                         </ImageView>
                      </children>

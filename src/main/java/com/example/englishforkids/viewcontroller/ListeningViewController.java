@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -41,12 +42,14 @@ public class ListeningViewController {
     Label lblUsername;
     @FXML
     Pane paneUsername;
+    @FXML
+    ImageView imgAvatar;
     private List<Listening> lstListening;
     private int index;
     ListeningDAO listeningDAO;
     private final List<DataUpdateListener> subscribers = new ArrayList<>();
     public void initialize(){
-        MainViewController.createPaneUsername(lblUsername, paneUsername);
+        MainViewController.createPaneUsername(lblUsername, paneUsername, imgAvatar);
         txtDescription.setWrapText(true);
         Lesson lesson = LessonViewController.curLesson;
         listeningDAO = new ListeningDAO();

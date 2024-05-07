@@ -52,7 +52,7 @@ public class MainController {
             MessageBox.show("Notify","Login Successfully", Alert.AlertType.CONFIRMATION);
             ShowNewScene.close(event);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/main_view.fxml"));
-            ShowNewScene.show(loader, "List lesson");
+            ShowNewScene.show(loader, "English for kids");
             return;
         }
 
