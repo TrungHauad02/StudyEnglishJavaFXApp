@@ -77,10 +77,10 @@ public class ListeningViewController {
     private void loadPane(URL urlPane){
         try {
             FXMLLoader loader = new FXMLLoader(urlPane);
-            Pane paneScript = loader.load();
+            Pane pane = loader.load();
 
             paneContainer.getChildren().clear();
-            paneContainer.getChildren().add(paneScript);
+            paneContainer.getChildren().add(pane);
             DataUpdateListener controller = loader.getController();
             subscribers.clear();
             subscribers.add(controller);

@@ -19,7 +19,9 @@ public class VocabularyDAO extends EngSysDAO<Vocabulary, String>{
             "INNER JOIN LESSONPART LP ON VP.IdLessonPart = LP.IdLessonPart\n" +
             "INNER JOIN LESSON L ON LP.IdLesson = L.IdLesson\n" +
             "WHERE L.IdLesson = ?\n";
-
+    final public static String SELECT_ALL_VOCABULARY_QUERY =
+            "SELECT V.IdVocabulary, V.Word, V.Mean, V.Image, V.Phonetic\n" +
+                    "FROM VOCABULARY V\n";
     final public static String SELECT_ALL_ANTONYMS_VOCABULARY_QUERY =
             "SELECT V.IdVocabulary, V.Word, V.Mean\n" +
                     "FROM VOCABULARY V\n" +
@@ -47,7 +49,31 @@ public class VocabularyDAO extends EngSysDAO<Vocabulary, String>{
     }
 
     public List<Vocabulary> selectAll(){
-        return null;
+        LinkedList<Vocabulary> lstVocabulary = new LinkedList<>();
+        Connection connection = MySQLConnection.getConnection();
+        if (connection != null) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_VOCABULARY_QUERY)) {
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    Vocabulary vocabulary = new Vocabulary();
+                    vocabulary.setIdVocabulary(resultSet.getString("IdVocabulary"));
+                    vocabulary.setImage(resultSet.getBytes("image"));
+                    vocabulary.setMean(resultSet.getString("mean"));
+                    vocabulary.setWord(resultSet.getString("word"));
+                    vocabulary.setPhonetic(resultSet.getString("phonetic"));
+                    lstVocabulary.add(vocabulary);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return lstVocabulary;
     }
 
     public List<Vocabulary> selectBySql(String sql, Object...args){

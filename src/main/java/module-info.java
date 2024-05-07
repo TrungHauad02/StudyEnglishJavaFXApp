@@ -16,8 +16,8 @@ module com.example.englishforkids {
     requires google.cloud.speech;
     requires protobuf.java;
 
-
     opens com.example.englishforkids to javafx.fxml;
+    opens com.example.englishforkids.model;
     exports com.example.englishforkids;
     exports com.example.englishforkids.viewcontroller;
     opens com.example.englishforkids.viewcontroller to javafx.fxml;

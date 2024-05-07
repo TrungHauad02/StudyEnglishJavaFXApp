@@ -24,14 +24,13 @@ import java.util.List;
 public class ListLessonViewController {
     @FXML
     private Pane paneContainer;
-    @FXML
-    private Button btnLogout;
+
     public void initialize() {
         LessonDAO lessonDAO = new LessonDAO();
         List<Lesson> lstLesson = new LinkedList<Lesson>();
         lstLesson = lessonDAO.selectAll();
         double initialX = 228.0;
-        double initialY = 89.0;
+        double initialY = 19.0;
         double deltaX = 131.0;
         double deltaY = 111.0;
         for (int i = 0; i < lstLesson.size() || i < 12; i++) {
@@ -46,18 +45,6 @@ public class ListLessonViewController {
 
             paneContainer.getChildren().add(lessonPane);
         }
-
-        btnLogout.setOnAction(event -> {
-            String macAddress = MacAddress.getMacAddress();
-            String idAccount = CurrentUser.getInstance().getCurrentUser().getIdAccount();
-            RememberLogin rememberLogin = new RememberLogin(idAccount, macAddress);
-            RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
-            rememberLoginDAO.delete(rememberLogin);
-            CurrentUser.getInstance().setCurrentUser(null);
-            ShowNewScene.close(event);
-            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
-            ShowNewScene.show(loader,"Login");
-        });
     }
 
     private Pane createLessonPane(Lesson lesson) {
