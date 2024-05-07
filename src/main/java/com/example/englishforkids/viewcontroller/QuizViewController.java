@@ -1,9 +1,13 @@
 package com.example.englishforkids.viewcontroller;
 
+import com.example.englishforkids.GetResourceController;
 import com.example.englishforkids.dao.*;
+import com.example.englishforkids.feature.ChangeMainPane;
 import com.example.englishforkids.feature.CurrentUser;
+import com.example.englishforkids.feature.MessageBox;
 import com.example.englishforkids.model.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,12 +16,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Base64;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-public class QuizViewController {
+public class QuizViewController implements ChangeMainPane {
+    MainViewController mainViewController;
     @FXML
     Label lblSerial;
     @FXML
@@ -76,8 +83,15 @@ public class QuizViewController {
             }
         });
         btnExit.setOnAction(event -> {
-            Stage currentStage = (Stage) lblQuestionContent.getScene().getWindow();
-            currentStage.close();
+            try{
+                FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("lesson_view.fxml"));
+                Pane newPane = loader.load();
+                ChangeMainPane controller = loader.getController();
+                controller.setMainViewController(mainViewController);
+                mainViewController.onPaneChange(newPane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         btnSubmit.setOnAction(event -> {
             submit();
@@ -86,8 +100,8 @@ public class QuizViewController {
         indexCurrentQuestion = 0;
         loadData();
         lblQuizName.setText(quiz.getTitle());
-        loadQuestion();
         loadToggleGroup();
+        loadQuestion();
         loadListQuestionPane();
         showConfirmationDialog();
     }
@@ -129,7 +143,7 @@ public class QuizViewController {
         submitQuiz = new SubmitQuiz();
         submitQuiz.setIdQuiz(quiz.getIdQuiz());
         submitQuiz.setIdUser(CurrentUser.getInstance().getCurrentUser().getIdUser());
-        submitQuiz.setStartTime(new Date());
+        submitQuiz.setStartTime(new Timestamp(System.currentTimeMillis()).toLocalDateTime());
     }
     private void loadToggleGroup(){
         ToggleGroup toggleGroup = new ToggleGroup();
@@ -195,12 +209,38 @@ public class QuizViewController {
         lblQuestionContent.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getContent()));
         byte[] decodedImage = Base64.getDecoder().decode(lstQuestion.get(indexCurrentQuestion).getImage());
         imgQuestion.setImage(new Image(new ByteArrayInputStream(decodedImage)));
-        rdbOption1.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getLstAnswers().get(0).getContent()));
-        rdbOption2.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getLstAnswers().get(1).getContent()));
-        rdbOption3.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getLstAnswers().get(2).getContent()));
-        rdbOption4.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getLstAnswers().get(3).getContent()));
-    }
+        List<AnswerQuiz> answers = lstQuestion.get(indexCurrentQuestion).getLstAnswers();
+        rdbOption1.setText(String.valueOf(answers.get(0).getContent()));
+        rdbOption2.setText(String.valueOf(answers.get(1).getContent()));
+        rdbOption3.setText(String.valueOf(answers.get(2).getContent()));
+        rdbOption4.setText(String.valueOf(answers.get(3).getContent()));
 
+        ToggleGroup toggleGroup = rdbOption1.getToggleGroup();
+        toggleGroup.selectToggle(null);
+        AnswerSubmitQuiz answerSubmitQuiz = lstAnswerSubmit.get(indexCurrentQuestion);
+        String selectedAnswerId = answerSubmitQuiz.getIdAnswerQuiz();
+        AnswerQuiz answerQuiz = findAnswerById(answers, selectedAnswerId);
+
+        if (answerSubmitQuiz.getIdAnswerQuiz() != null) {
+            for (Toggle toggle : toggleGroup.getToggles()) {
+                if (toggle instanceof RadioButton) {
+                    RadioButton radioButton = (RadioButton) toggle;
+                    if (answerQuiz != null && radioButton.getText().equals(answerQuiz.getContent())) {
+                        radioButton.setSelected(true);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    private AnswerQuiz findAnswerById(List<AnswerQuiz> answers, String answerId) {
+        for (AnswerQuiz answer : answers) {
+            if (answer.getIdAnswerQuiz().equals(answerId)) {
+                return answer;
+            }
+        }
+        return null;
+    }
     private void submit(){
         int score = 0;
         for(AnswerSubmitQuiz answerSubmitQuiz: lstAnswerSubmit){
@@ -216,10 +256,27 @@ public class QuizViewController {
             }
         }
         submitQuiz.setScore(score);
-        submitQuiz.setEndTime(new Date());
+        submitQuiz.setEndTime(new Timestamp(System.currentTimeMillis()).toLocalDateTime());
         submitQuizDAO.insert(submitQuiz);
+        String idSubmitQuiz = submitQuizDAO.getLastestID();
         for(AnswerSubmitQuiz answerSubmitQuiz: lstAnswerSubmit){
+            answerSubmitQuiz.setIdSubmitQuiz(idSubmitQuiz);
             answerSubmitQuizDAO.insert(answerSubmitQuiz);
         }
+        String scoreString = score +"/"+ lstQuestion.size();
+        MessageBox.show("Submit quiz","Bạn đã hoàn thành bài quiz.\nĐiểm của bạn là "+scoreString, Alert.AlertType.CONFIRMATION);
+        try{
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("lesson_view.fxml"));
+            Pane newPane = loader.load();
+            ChangeMainPane controller = loader.getController();
+            controller.setMainViewController(mainViewController);
+            mainViewController.onPaneChange(newPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    public void setMainViewController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
     }
 }

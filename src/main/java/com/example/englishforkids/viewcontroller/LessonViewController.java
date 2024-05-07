@@ -68,6 +68,8 @@ public class LessonViewController implements ChangeMainPane {
             try {
                 FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("quiz_view.fxml"));
                 Pane pane = loader.load();
+                ChangeMainPane controller = loader.getController();
+                controller.setMainViewController(mainViewController);
                 mainViewController.onPaneChange(pane);
             } catch (IOException e) {
                 throw new RuntimeException(e);
