@@ -1,12 +1,13 @@
 package com.example.englishforkids.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class SubmitQuiz {
     private String idSubmitQuiz;
     private int score;
-    private Date startTime;
-    private Date endTime;
+    private LocalDateTime  startTime;
+    private LocalDateTime endTime;
     private String idQuiz;
     private String idUser;
 
@@ -26,19 +27,19 @@ public class SubmitQuiz {
         this.score = score;
     }
 
-    public Date getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 
