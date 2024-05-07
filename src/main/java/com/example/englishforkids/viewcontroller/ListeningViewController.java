@@ -2,6 +2,7 @@ package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.GetResourceController;
 import com.example.englishforkids.dao.ListeningDAO;
+import com.example.englishforkids.feature.DataUpdateListener;
 import com.example.englishforkids.model.Lesson;
 import com.example.englishforkids.model.Listening;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListeningViewController {
@@ -35,33 +37,33 @@ public class ListeningViewController {
     Label lblLesson;
     @FXML
     Pane paneContainer;
-    private Lesson lesson;
     private List<Listening> lstListening;
     private int index;
     ListeningDAO listeningDAO;
+    private final List<DataUpdateListener> subscribers = new ArrayList<>();
     public void initialize(){
         txtDescription.setWrapText(true);
-        /*lesson = LessonViewController.curLesson;
+        Lesson lesson = LessonViewController.curLesson;
         listeningDAO = new ListeningDAO();
         lstListening = listeningDAO.selectBySql(ListeningDAO.SELECT_LISTENING_FROM_LESSON, lesson.getIdLesson());
         index = 0;
-        loadScene();*/
+        updateButtonColors(btnDetail);
+        loadPane(GetResourceController.getFXMLResourcePath("listening_detail_view.fxml"));
         btnPrevious.setOnAction(event -> {
             if(index >= 1){
                 index--;
-                loadScene();
+                notifySubscribers();
             }
         });
         btnNext.setOnAction(event -> {
             if(index < lstListening.size()-1){
                 index++;
-                loadScene();
+                notifySubscribers();
             }
         });
         btnScript.setOnAction(event -> {
             updateButtonColors(btnScript);
             loadPane(GetResourceController.getFXMLResourcePath("listening_script_view.fxml"));
-
         });
         btnVideo.setOnAction(event -> {
             updateButtonColors(btnVideo);
@@ -72,10 +74,6 @@ public class ListeningViewController {
             loadPane(GetResourceController.getFXMLResourcePath("listening_detail_view.fxml"));
         });
     }
-    private void loadScene(){
-        Listening listening = lstListening.get(index);
-        txtDescription.setText(listening.getDescription());
-    }
     private void loadPane(URL urlPane){
         try {
             FXMLLoader loader = new FXMLLoader(urlPane);
@@ -83,6 +81,10 @@ public class ListeningViewController {
 
             paneContainer.getChildren().clear();
             paneContainer.getChildren().add(paneScript);
+            DataUpdateListener controller = loader.getController();
+            subscribers.clear();
+            subscribers.add(controller);
+            notifySubscribers();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -91,5 +93,10 @@ public class ListeningViewController {
         btnScript.setTextFill(btnScript == selectedButton ? Color.RED : Color.BLACK);
         btnVideo.setTextFill(btnVideo == selectedButton ? Color.RED : Color.BLACK);
         btnDetail.setTextFill(btnDetail == selectedButton ? Color.RED : Color.BLACK);
+    }
+    private void notifySubscribers() {
+        for (DataUpdateListener listener : subscribers) {
+            listener.onUpdateData(lstListening, index);
+        }
     }
 }

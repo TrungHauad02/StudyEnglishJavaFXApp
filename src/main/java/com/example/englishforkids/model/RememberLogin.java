@@ -2,11 +2,11 @@ package com.example.englishforkids.model;
 
 public class RememberLogin {
     private String idAccount;
-    private String ipAddress;
+    private String macAddress;
 
-    public RememberLogin(String idAccount, String ipAddress) {
+    public RememberLogin(String idAccount, String macAddress) {
         this.idAccount = idAccount;
-        this.ipAddress = ipAddress;
+        this.macAddress = macAddress;
     }
 
     public RememberLogin() {
@@ -20,11 +20,11 @@ public class RememberLogin {
         this.idAccount = idAccount;
     }
 
-    public String getIpAddress() {
-        return ipAddress;
+    public String getMacAddress() {
+        return macAddress;
     }
 
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ListeningDAO extends EngSysDAO<Listening, String>{
     public static final String SELECT_LISTENING_FROM_LESSON =
-            "SELECT IdListening, CreateDay, Title, Description, Video, Script\n" +
+            "SELECT L.IdListening, L.Title, L.Description, L.Video, L.Script\n" +
                     "FROM LISTENING L\n" +
                     "JOIN LISTENINGPART LP ON L.IdListening = LP.IdListening\n" +
                     "JOIN LESSONPART LP2 ON LP.IdLessonPart = LP2.IdLessonPart\n" +
@@ -46,7 +46,7 @@ public class ListeningDAO extends EngSysDAO<Listening, String>{
                 while (resultSet.next()) {
                     Listening listening = new Listening();
                     listening.setIdListening(resultSet.getString("IdListening"));
-                    listening.setTitle(resultSet.getString("Tile"));
+                    listening.setTitle(resultSet.getString("Title"));
                     listening.setDescription(resultSet.getString("Description"));
                     listening.setScript(resultSet.getString("Script"));
                     listening.setVideo(resultSet.getBytes("Video"));

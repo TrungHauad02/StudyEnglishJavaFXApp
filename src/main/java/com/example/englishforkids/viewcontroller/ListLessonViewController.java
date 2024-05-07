@@ -1,11 +1,16 @@
 package com.example.englishforkids.viewcontroller;
 
 import com.example.englishforkids.GetResourceController;
+import com.example.englishforkids.dao.RememberLoginDAO;
+import com.example.englishforkids.feature.CurrentUser;
+import com.example.englishforkids.feature.MacAddress;
 import com.example.englishforkids.feature.ShowNewScene;
 import com.example.englishforkids.dao.LessonDAO;
 import com.example.englishforkids.model.Lesson;
+import com.example.englishforkids.model.RememberLogin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -19,6 +24,8 @@ import java.util.List;
 public class ListLessonViewController {
     @FXML
     private Pane paneContainer;
+    @FXML
+    private Button btnLogout;
     public void initialize() {
         LessonDAO lessonDAO = new LessonDAO();
         List<Lesson> lstLesson = new LinkedList<Lesson>();
@@ -39,6 +46,18 @@ public class ListLessonViewController {
 
             paneContainer.getChildren().add(lessonPane);
         }
+
+        btnLogout.setOnAction(event -> {
+            String macAddress = MacAddress.getMacAddress();
+            String idAccount = CurrentUser.getInstance().getCurrentUser().getIdAccount();
+            RememberLogin rememberLogin = new RememberLogin(idAccount, macAddress);
+            RememberLoginDAO rememberLoginDAO = new RememberLoginDAO();
+            rememberLoginDAO.delete(rememberLogin);
+            CurrentUser.getInstance().setCurrentUser(null);
+            ShowNewScene.close(event);
+            FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
+            ShowNewScene.show(loader,"Login");
+        });
     }
 
     private Pane createLessonPane(Lesson lesson) {
