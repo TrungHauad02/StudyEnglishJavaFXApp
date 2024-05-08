@@ -103,7 +103,6 @@ public class QuizViewController implements ChangeMainPane {
         loadToggleGroup();
         loadQuestion();
         loadListQuestionPane();
-        showConfirmationDialog();
     }
     private void loadData(){
         Lesson lesson = LessonViewController.curLesson;
@@ -115,29 +114,7 @@ public class QuizViewController implements ChangeMainPane {
             lstAnswerSubmit.add(new AnswerSubmitQuiz());
         }
     }
-    private void showConfirmationDialog() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText("Bạn đã sẵn sàng làm bài kiểm tra chưa?");
-        alert.setContentText("Bài kiểm tra sẽ có " + lstQuestion.size() + " câu hỏi");
 
-        ButtonType readyButton = new ButtonType("Sẵn sàng");
-        ButtonType notReadyButton = new ButtonType("Chưa sẵn sàng");
-
-        alert.getButtonTypes().setAll(readyButton, notReadyButton);
-
-        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.initModality(Modality.APPLICATION_MODAL);
-
-        alert.showAndWait().ifPresent(buttonType -> {
-            if (buttonType == readyButton) {
-                startQuiz();
-            } else if (buttonType == notReadyButton) {
-                Stage currentStage = (Stage) lblQuestionContent.getScene().getWindow();
-                currentStage.close();
-            }
-        });
-    }
 
     private void startQuiz(){
         submitQuiz = new SubmitQuiz();
@@ -205,11 +182,16 @@ public class QuizViewController implements ChangeMainPane {
     }
 
     private void loadQuestion(){
-        lblSerial.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getSerial()));
-        lblQuestionContent.setText(String.valueOf(lstQuestion.get(indexCurrentQuestion).getContent()));
-        byte[] decodedImage = Base64.getDecoder().decode(lstQuestion.get(indexCurrentQuestion).getImage());
-        imgQuestion.setImage(new Image(new ByteArrayInputStream(decodedImage)));
-        List<AnswerQuiz> answers = lstQuestion.get(indexCurrentQuestion).getLstAnswers();
+        QuestionQuiz curQuestion = lstQuestion.get(indexCurrentQuestion);
+        lblSerial.setText(String.valueOf(curQuestion.getSerial()));
+        lblQuestionContent.setText(String.valueOf(curQuestion.getContent()));
+        if(lstQuestion.get(indexCurrentQuestion).getImage() != null){
+            byte[] decodedImage = Base64.getDecoder().decode(curQuestion.getImage());
+            imgQuestion.setImage(new Image(new ByteArrayInputStream(decodedImage)));
+        }else{
+            imgQuestion.setImage(null);
+        }
+        List<AnswerQuiz> answers = curQuestion.getLstAnswers();
         rdbOption1.setText(String.valueOf(answers.get(0).getContent()));
         rdbOption2.setText(String.valueOf(answers.get(1).getContent()));
         rdbOption3.setText(String.valueOf(answers.get(2).getContent()));

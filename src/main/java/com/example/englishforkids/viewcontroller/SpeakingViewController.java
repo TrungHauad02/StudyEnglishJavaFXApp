@@ -154,10 +154,12 @@ public class SpeakingViewController {
             txtExample.setWrapText(true);
             this.lblTitle.setText(this.lstSpeaking.get(index).getTitle());
             this.lblContent.setText(this.lstSpeaking.get(index).getContent());
-            byte[] audioData = Base64.getDecoder().decode(this.lstSpeaking.get(index).getExample());
-            File tempFile = createTempFileFromByteArray(audioData);
 
-            this.audioClip = new AudioClip(tempFile.toURI().toString());
+            if (this.lstSpeaking.get(index).getExample()!=null){
+                byte[] audioData = Base64.getDecoder().decode(this.lstSpeaking.get(index).getExample());
+                File tempFile = createTempFileFromByteArray(audioData);
+                this.audioClip = new AudioClip(tempFile.toURI().toString());
+            }
            // this.audioClip = new AudioClip(new ByteArrayInputStream(this.lstSpeaking.get(index).getExample()).toString());
         }
     }
