@@ -35,13 +35,14 @@ public class ListeningVideoViewController implements DataUpdateListener {
     public void onUpdateData(List<Listening> lstListening, int currentIndex){
         lblTitle.setText(lstListening.get(currentIndex).getTitle());
 
+        if(lstListening.get(currentIndex).getVideo() == null)
+            return;
         byte[] videoData = Base64.getDecoder().decode(lstListening.get(currentIndex).getVideo());
         String base64Data = Base64.getEncoder().encodeToString(videoData);
 
         try {
             File tempFile = createTempFileFromBase64(base64Data);
             playVideoFromFile(tempFile);
-            //updateTextFlowWithWords(lstListening.get(currentIndex).getScript());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,16 +84,5 @@ public class ListeningVideoViewController implements DataUpdateListener {
         }
 
         return tempFile;
-    }
-    private void updateTextFlowWithWords(String script) {
-        textFlow.getChildren().clear();
-
-        String[] words = script.split("\\s+");
-
-        for (String word : words) {
-            Text text = new Text(word + " ");
-            text.setFill(Color.BLACK);
-            textFlow.getChildren().add(text);
-        }
     }
 }

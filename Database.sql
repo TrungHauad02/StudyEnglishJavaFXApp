@@ -467,3 +467,362 @@ INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
 VALUES ('Lpart00018', 'vocabulary', 'Less000001');
 INSERT INTO VOCABULARYPART (IdVocabulary, IdLessonPart)
 VALUES ('V000000014', 'Lpart00018');
+
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000002', 'Present Continuous tense', 'Hiện tại tiếp diễn (Present Continuous) là một trong các thì hiện tại trong tiếng Anh, diễn tả các hành động đang xảy ra ở hiện tại.', 'S + am/is/are + V-ing + O/A', 'I am watching TV now.');
+
+-- Add grammar to lesson 2
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00019', 'grammar', 'Less000002');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000002', 'Lpart00019');
+
+-- Add grammar to lesson 3
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000003', 'Past Simple tense', 'Quá khứ đơn (Past Simple) là một trong các thì quá khứ trong tiếng Anh, diễn tả các hành động đã xảy ra ở quá khứ.', 'S + V-ed + O/A', 'I watched TV yesterday.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00020', 'grammar', 'Less000003');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000003', 'Lpart00020');
+
+-- Add grammar to lesson 4
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000004', 'Future Simple tense', 'Tương lai đơn (Future Simple) là một trong các thì tương lai trong tiếng Anh, diễn tả các hành động sẽ xảy ra ở tương lai.', 'S + will + V + O/A', 'I will go to school tomorrow.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00021', 'grammar', 'Less000004');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000004', 'Lpart00021');
+
+-- Add grammar to lesson 5
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000005', 'Present Perfect tense', 'Hiện tại hoàn thành (Present Perfect) là một trong các thì hiện tại trong tiếng Anh, diễn tả hành động đã xảy ra trong quá khứ và vẫn còn ảnh hưởng đến hiện tại.', 'S + have/has + V-ed + O/A', 'I have finished my homework.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00022', 'grammar', 'Less000005');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000005', 'Lpart00022');
+
+-- Add grammar to lesson 6
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000006', 'Past Continuous tense', 'Quá khứ tiếp diễn (Past Continuous) là một trong các thì quá khứ trong tiếng Anh, diễn tả hành động đang xảy ra ở quá khứ.', 'S + was/were + V-ing + O/A', 'I was watching TV when you called me.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00023', 'grammar', 'Less000006');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000006', 'Lpart00023');
+
+-- Add grammar to lesson 7
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000007', 'Future Continuous tense', 'Tương lai tiếp diễn (Future Continuous) là một trong các thì tương lai trong tiếng Anh, diễn tả hành động đang xảy ra ở tương lai.', 'S + will + be + V-ing + O/A', 'I will be watching TV at 8 pm tomorrow.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00024', 'grammar', 'Less000007');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000007', 'Lpart00024');
+
+-- Add grammar to lesson 8
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000008', 'Present Perfect Continuous tense', 'Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous) là một trong các thì hiện tại trong tiếng Anh, diễn tả hành động đã xảy ra trong quá khứ và vẫn đang tiếp tục ở hiện tại.', 'S + have/has + been + V-ing + O/A', 'I have been studying English for 2 hours.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00025', 'grammar', 'Less000008');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000008', 'Lpart00025');
+
+-- Add grammar to lesson 9
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000009', 'Past Perfect tense', 'Quá khứ hoàn thành (Past Perfect) là một trong các thì quá khứ trong tiếng Anh, diễn tả hành động đã xảy ra trước một hành động khác ở quá khứ.', 'S + had + V-ed + O/A', 'I had finished my homework when you called me.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00026', 'grammar', 'Less000009');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000009', 'Lpart00026');
+
+-- Add grammar to lesson 10
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000010', 'Future Perfect tense', 'Tương lai hoàn thành (Future Perfect) là một trong các thì tương lai trong tiếng Anh, diễn tả hành động sẽ xảy ra trước một hành động khác ở tương lai.', 'S + will + have + V-ed + O/A', 'I will have finished my homework by 9 pm.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00027', 'grammar', 'Less000010');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000010', 'Lpart00027');
+
+-- Add grammar to lesson 11
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000011', 'Present Perfect Continuous tense', 'Hiện tại hoàn thành tiếp diễn (Present Perfect Continuous) là một trong các thì hiện tại trong tiếng Anh, diễn tả hành động đã xảy ra trong quá khứ và vẫn đang tiếp tục ở hiện tại.', 'S + have/has + been + V-ing + O/A', 'I have been studying English for 2 hours.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00028', 'grammar', 'Less000011');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000011', 'Lpart00028');
+
+-- Add grammar to lesson 12
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000012', 'Past Perfect Continuous tense', 'Quá khứ hoàn thành tiếp diễn (Past Perfect Continuous) là một trong các thì quá khứ trong tiếng Anh, diễn tả hành động đã xảy ra trước một hành động khác ở quá khứ và vẫn đang tiếp tục ở hiện tại.', 'S + had + been + V-ing + O/A', 'I had been studying English for 2 hours when you called me.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00029', 'grammar', 'Less000012');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000012', 'Lpart00029');
+
+-- Add grammar to lesson 13
+INSERT INTO GRAMMAR (IdGrammar, Title, Content, Rule, Example)
+VALUES ('gram000013', 'Future Perfect Continuous tense', 'Tương lai hoàn thành tiếp diễn (Future Perfect Continuous) là một trong các thì tương lai trong tiếng Anh, diễn tả hành động sẽ xảy ra trước một hành động khác ở tương lai và vẫn đang tiếp tục ở hiện tại.', 'S + will + have + been + V-ing + O/A', 'I will have been studying English for 2 hours by 9 pm.');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00030', 'grammar', 'Less000013');
+INSERT INTO GRAMMARPART (IdGrammar, IdLessonPart)
+VALUES ('gram000013', 'Lpart00030');
+
+-- Add listening to lesson 2
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000002', 'The best way to learn English', 'This video is about the best way to learn English','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00031', 'listening', 'Less000002');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000002', 'Lpart00031');
+
+-- Add listening to lesson 3
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000003', 'How to improve your English', 'This video is about how to improve your English','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00032', 'listening', 'Less000003');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000003', 'Lpart00032');
+
+-- Add listening to lesson 4
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000004', 'How to speak English fluently', 'This video is about how to speak English fluently','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00033', 'listening', 'Less000004');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000004', 'Lpart00033');
+
+-- Add listening to lesson 5
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000005', 'How to improve your English listening skills', 'This video is about how to improve your English listening skills','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00034', 'listening', 'Less000005');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000005', 'Lpart00034');
+
+-- Add listening to lesson 6
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000006', 'How to improve your English speaking skills', 'This video is about how to improve your English speaking skills','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00035', 'listening', 'Less000006');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000006', 'Lpart00035');
+
+-- Add listening to lesson 7
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000007', 'How to improve your English writing skills', 'This video is about how to improve your English writing skills','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00036', 'listening', 'Less000007');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000007', 'Lpart00036');
+
+-- Add listening to lesson 8
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000008', 'How to improve your English reading skills', 'This video is about how to improve your English reading skills','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00037', 'listening', 'Less000008');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000008', 'Lpart00037');
+
+-- Add listening to lesson 9
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000009', 'How to improve your English grammar', 'This video is about how to improve your English grammar','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00038', 'listening', 'Less000009');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000009', 'Lpart00038');
+
+-- Add listening to lesson 10
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000010', 'How to improve your English vocabulary', 'This video is about how to improve your English vocabulary','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00039', 'listening', 'Less000010');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000010', 'Lpart00039');
+
+-- Add listening to lesson 11
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000011', 'How to improve your English pronunciation', 'This video is about how to improve your English pronunciation','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00040', 'listening', 'Less000011');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000011', 'Lpart00040');
+
+-- Add listening to lesson 12
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000012', 'How to improve your English speaking skills', 'This video is about how to improve your English speaking skills','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00041', 'listening', 'Less000012');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000012', 'Lpart00041');
+
+-- Add listening to lesson 13
+INSERT INTO LISTENING (IdListening, Title, Description, Script)
+VALUES ('List000013', 'How to improve your English writing skills', 'This video is about how to improve your English writing skills','');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00042', 'listening', 'Less000013');
+INSERT INTO LISTENINGPART (IdListening, IdLessonPart)
+VALUES ('List000013', 'Lpart00042');
+
+-- Add speaking to lesson 2
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000002', 'Family', 'Talk about your family');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00043', 'speaking', 'Less000002');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000002', 'Lpart00043');
+
+-- Add speaking to lesson 3
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000003', 'Hobbies', 'Talk about your hobbies');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00044', 'speaking', 'Less000003');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000003', 'Lpart00044');
+
+-- Add speaking to lesson 4
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000004', 'Food', 'Talk about your favorite food');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00045', 'speaking', 'Less000004');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000004', 'Lpart00045');
+
+-- Add speaking to lesson 5
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000005', 'Travel', 'Talk about your last trip');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00046', 'speaking', 'Less000005');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000005', 'Lpart00046');
+
+-- Add speaking to lesson 6
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000006', 'Weather', 'Talk about the weather');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00047', 'speaking', 'Less000006');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000006', 'Lpart00047');
+
+-- Add speaking to lesson 7
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000007', 'Music', 'Talk about your favorite music');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00048', 'speaking', 'Less000007');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000007', 'Lpart00048');
+
+-- Add speaking to lesson 8
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000008', 'Sport', 'Talk about your favorite sport');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00049', 'speaking', 'Less000008');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000008', 'Lpart00049');
+
+-- Add speaking to lesson 9
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000009', 'Job', 'Talk about your job');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00050', 'speaking', 'Less000009');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000009', 'Lpart00050');
+
+-- Add speaking to lesson 10
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000010', 'Study', 'Talk about your study');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00051', 'speaking', 'Less000010');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000010', 'Lpart00051');
+
+-- Add speaking to lesson 11
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000011', 'Health', 'Talk about your health');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00052', 'speaking', 'Less000011');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000011', 'Lpart00052');
+
+-- Add speaking to lesson 12
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000012', 'Shopping', 'Talk about your shopping');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00053', 'speaking', 'Less000012');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000012', 'Lpart00053');
+
+-- Add speaking to lesson 13
+INSERT INTO SPEAKING (IdSpeaking, Title, Content)
+VALUES ('spe0000013', 'Technology', 'Talk about your technology');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00054', 'speaking', 'Less000013');
+INSERT INTO SPEAKINGPART (IdSpeaking, IdLessonPart)
+VALUES ('spe0000013', 'Lpart00054');
+
+-- Add quiz to lesson 2
+INSERT INTO QUIZ (IdQuiz, Title, Status)
+VALUES ('quiz000002', 'Quiz 2', 'unlock');
+INSERT INTO LESSONPART (IdLessonPart, Type, IdLesson)
+VALUES ('Lpart00055', 'quiz', 'Less000002');
+INSERT INTO QUIZPART (IdQuiz, IdLessonPart)
+VALUES ('quiz000002', 'Lpart00055');
+
+
+INSERT INTO QUESTIONQUIZ (IdQuestionQuiz, Content, IdQuiz)
+VALUES ('qq00000004', 'What is mean of "Goodbye"?', 'quiz000002');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000013', 'Xin chào', 0, 'qq00000004');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000014', 'Tạm biệt', 1, 'qq00000004');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000015', 'Cảm ơn bạn', 0, 'qq00000004');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000016', 'Xin lỗi', 0, 'qq00000004');
+
+INSERT INTO QUESTIONQUIZ (IdQuestionQuiz, Content, IdQuiz)
+VALUES ('qq00000005', 'What is mean of "Thank you"?', 'quiz000002');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000017', 'Xin chào', 0, 'qq00000005');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000018', 'Tạm biệt', 0, 'qq00000005');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000019', 'Cảm ơn bạn', 1, 'qq00000005');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000020', 'Xin lỗi', 0, 'qq00000005');
+
+INSERT INTO QUESTIONQUIZ (IdQuestionQuiz, Content, IdQuiz)
+VALUES ('qq00000006', 'What is mean of "Sorry"?', 'quiz000002');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000021', 'Xin chào', 0, 'qq00000006');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000022', 'Tạm biệt', 0, 'qq00000006');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000023', 'Cảm ơn bạn', 0, 'qq00000006');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000024', 'Xin lỗi', 1, 'qq00000006');
+
+INSERT INTO QUESTIONQUIZ (IdQuestionQuiz, Content, IdQuiz)
+VALUES ('qq00000007', 'What is mean of "Please"?', 'quiz000002');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000025', 'Xin chào', 0, 'qq00000007');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000026', 'Tạm biệt', 0, 'qq00000007');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000027', 'Cảm ơn bạn', 0, 'qq00000007');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000028', 'Làm ơn', 1, 'qq00000007');
+
+INSERT INTO QUESTIONQUIZ (IdQuestionQuiz, Content, IdQuiz)
+VALUES ('qq00000008', 'What is mean of "Yes"?', 'quiz000002');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000029', 'Có', 1, 'qq00000008');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000030', 'Không', 0, 'qq00000008');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000031', 'Cái gì', 0, 'qq00000008');
+INSERT INTO ANSWERQUIZ (IdAnswerQuiz, Content, IsCorrect, IdQuestionQuiz)
+VALUES ('ans0000032', 'Ở đâu', 0, 'qq00000008');
+
+UPDATE `questionquiz` SET `Serial` = '1' WHERE (`IdQuestionQuiz` = 'qq00000004');
+UPDATE `questionquiz` SET `Serial` = '2' WHERE (`IdQuestionQuiz` = 'qq00000005');
+UPDATE `questionquiz` SET `Serial` = '3' WHERE (`IdQuestionQuiz` = 'qq00000006');
+UPDATE `questionquiz` SET `Serial` = '4' WHERE (`IdQuestionQuiz` = 'qq00000007');
+UPDATE `questionquiz` SET `Serial` = '5' WHERE (`IdQuestionQuiz` = 'qq00000008');
