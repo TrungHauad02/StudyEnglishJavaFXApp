@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDAO extends EngSysDAO<User, String>{
     private static final String SELECT_USER_BY_ID_QUERY = "SELECT * FROM USER WHERE IdUser = ?";
     private static final String SELECT_USER_BY_ID_ACCOUNT_QUERY = "SELECT * FROM USER WHERE IdAccount = ?";
-    private static final String SELECT_USER_BY_EMAIL_QUERY = "SELECT * FROM USER WHERE Email = ?";
+    private static final String SELECT_USER_BY_EMAIL_QUERY = "SELECT * FROM USER WHERE EmailParent = ?";
     private static final String INSERT_USER_QUERY = "INSERT INTO USER(Fullname, Birthday, Status, Avatar, School, Class, Address, EmailParent) " +
                                                 "VALUE (?,?,?,?,?,?,?,?)";
     public boolean insert(User entity){
