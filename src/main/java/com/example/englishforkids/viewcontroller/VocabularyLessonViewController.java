@@ -77,15 +77,17 @@ public class VocabularyLessonViewController {
 
     private void getAntonyms(){
         for (Vocabulary vocabulary: lstVocabulary) {
+            String id = vocabulary.getIdVocabulary();
             vocabulary.setAntonyms(vocabularyDAO.selectBySql(VocabularyDAO.SELECT_ALL_ANTONYMS_VOCABULARY_QUERY,
-                    vocabulary.getIdVocabulary()));
+                    id,id));
         }
     }
 
     private void getSynonyms(){
         for (Vocabulary vocabulary: lstVocabulary) {
+            String id = vocabulary.getIdVocabulary();
             vocabulary.setSynonyms(vocabularyDAO.selectBySql(VocabularyDAO.SELECT_ALL_SYNONYMS_VOCABULARY_QUERY,
-                    vocabulary.getIdVocabulary()));
+                    id,id));
         }
     }
 
@@ -98,6 +100,7 @@ public class VocabularyLessonViewController {
     }
 
     private void loadScene() {
+        clearScene();
         Vocabulary vocabulary = lstVocabulary.get(index);
         txtWord.setText(vocabulary.getWord());
         txtMean.setText(vocabulary.getMean());
@@ -106,8 +109,19 @@ public class VocabularyLessonViewController {
         String synonyms = getStringFromListVocabulary(vocabulary.getSynonyms());
         txtAntonyms.setText(antonyms);
         txtSynonyms.setText(synonyms);
-        byte[] decodedImage = Base64.getDecoder().decode(vocabulary.getImage());
-        Image image = new Image(new ByteArrayInputStream(decodedImage));
-        imgWord.setImage(image);
+        if(vocabulary.getImage()!= null){
+            byte[] decodedImage = Base64.getDecoder().decode(vocabulary.getImage());
+            Image image = new Image(new ByteArrayInputStream(decodedImage));
+            imgWord.setImage(image);
+        }
+    }
+
+    private void clearScene(){
+        txtWord.setText("");
+        txtMean.setText("");
+        txtPhonetic.setText("");
+        txtAntonyms.setText("");
+        txtSynonyms.setText("");
+        imgWord.setImage(null);
     }
 }

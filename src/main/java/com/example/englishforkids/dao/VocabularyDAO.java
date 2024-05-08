@@ -23,15 +23,26 @@ public class VocabularyDAO extends EngSysDAO<Vocabulary, String>{
             "SELECT V.IdVocabulary, V.Word, V.Mean, V.Image, V.Phonetic\n" +
                     "FROM VOCABULARY V\n";
     final public static String SELECT_ALL_ANTONYMS_VOCABULARY_QUERY =
-            "SELECT V.IdVocabulary, V.Word, V.Mean\n" +
-                    "FROM VOCABULARY V\n" +
-                    "INNER JOIN ANTONYMS A ON V.IdVocabulary = A.IdAntonyms\n" +
-                    "WHERE A.IdVocabulary = ?\n";
+            "SELECT V.IdVocabulary, V.Word, V.Mean, V.Image, V.Phonetic " +
+                    "FROM VOCABULARY V " +
+                    "INNER JOIN ANTONYMS A ON V.IdVocabulary = A.IdAntonyms " +
+                    "WHERE A.IdVocabulary = ? " +
+                    "UNION ALL " +
+                    "SELECT V.IdVocabulary, V.Word, V.Mean, V.Image, V.Phonetic " +
+                    "FROM VOCABULARY V " +
+                    "INNER JOIN ANTONYMS A ON V.IdVocabulary = A.IdVocabulary " +
+                    "WHERE A.IdAntonyms = ?;";
     final public static String SELECT_ALL_SYNONYMS_VOCABULARY_QUERY =
-            "SELECT V.IdVocabulary, V.Word, V.Mean\n" +
-                    "FROM VOCABULARY V\n" +
-                    "INNER JOIN SYNONYMS S ON V.IdVocabulary = S.IdSynonyms\n" +
-                    "WHERE S.IdVocabulary = ?\n";
+            "SELECT V.IdVocabulary, V.Word, V.Mean, V.Image, V.Phonetic " +
+                    "FROM VOCABULARY V " +
+                    "INNER JOIN SYNONYMS S ON V.IdVocabulary = S.IdSynonyms " +
+                    "WHERE S.IdVocabulary = ? " +
+                    "UNION ALL "+
+                    "SELECT V.IdVocabulary, V.Word, V.Mean, V.Image, V.Phonetic " +
+                    "FROM VOCABULARY V " +
+                    "INNER JOIN SYNONYMS S ON V.IdVocabulary = S.IdSynonyms " +
+                    "WHERE S.IdSynonyms = ?;"
+            ;
     public boolean insert(Vocabulary entity){
         return false;
     }
@@ -57,10 +68,10 @@ public class VocabularyDAO extends EngSysDAO<Vocabulary, String>{
                 while (resultSet.next()) {
                     Vocabulary vocabulary = new Vocabulary();
                     vocabulary.setIdVocabulary(resultSet.getString("IdVocabulary"));
-                    vocabulary.setImage(resultSet.getBytes("image"));
-                    vocabulary.setMean(resultSet.getString("mean"));
-                    vocabulary.setWord(resultSet.getString("word"));
-                    vocabulary.setPhonetic(resultSet.getString("phonetic"));
+                    vocabulary.setImage(resultSet.getBytes("Image"));
+                    vocabulary.setMean(resultSet.getString("Mean"));
+                    vocabulary.setWord(resultSet.getString("Word"));
+                    vocabulary.setPhonetic(resultSet.getString("Phonetic"));
                     lstVocabulary.add(vocabulary);
                 }
             } catch (SQLException e) {
@@ -88,10 +99,10 @@ public class VocabularyDAO extends EngSysDAO<Vocabulary, String>{
                 while (resultSet.next()) {
                     Vocabulary vocabulary = new Vocabulary();
                     vocabulary.setIdVocabulary(resultSet.getString("IdVocabulary"));
-                    vocabulary.setImage(resultSet.getBytes("image"));
-                    vocabulary.setMean(resultSet.getString("mean"));
-                    vocabulary.setWord(resultSet.getString("word"));
-                    vocabulary.setPhonetic(resultSet.getString("phonetic"));
+                    vocabulary.setImage(resultSet.getBytes("Image"));
+                    vocabulary.setMean(resultSet.getString("Mean"));
+                    vocabulary.setWord(resultSet.getString("Word"));
+                    vocabulary.setPhonetic(resultSet.getString("Phonetic"));
                     lstVocabulary.add(vocabulary);
                 }
             } catch (SQLException e) {

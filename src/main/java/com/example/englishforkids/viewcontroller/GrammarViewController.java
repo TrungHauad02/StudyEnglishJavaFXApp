@@ -30,6 +30,8 @@ public class GrammarViewController {
     @FXML
     ImageView imgExample;
     @FXML
+    Pane paneImage;
+    @FXML
     Button btnPrevious;
     @FXML
     Button btnNext;
@@ -64,13 +66,24 @@ public class GrammarViewController {
     }
 
     private void loadScene() {
+        clearScene();
         Grammar grammar = this.lstGrammar.get(index);
         lblTitle.setText(grammar.getTitle());
         txtContent.setText(grammar.getContent());
         txtRule.setText(grammar.getRule());
         txtExample.setText(grammar.getExample());
-        byte[] decodedImage = Base64.getDecoder().decode(grammar.getImage());
-        Image image = new Image(new ByteArrayInputStream(decodedImage));
-        imgExample.setImage(image);
+        if(grammar.getImage() != null){
+            byte[] decodedImage = Base64.getDecoder().decode(grammar.getImage());
+            Image image = new Image(new ByteArrayInputStream(decodedImage));
+            imgExample.setImage(image);
+            imgExample.setPreserveRatio(true);
+        }
+    }
+    private void clearScene(){
+        lblTitle.setText("");
+        txtContent.setText("");
+        txtRule.setText("");
+        txtExample.setText("");
+        imgExample.setImage(null);
     }
 }

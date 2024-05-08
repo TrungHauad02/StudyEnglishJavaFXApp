@@ -146,10 +146,12 @@ public class SpeakingViewController {
     }*/
 
     private void loadScene(){
+        clearScene();
         lesson = LessonViewController.curLesson;
         SpeakingDAO speakingDAO = new SpeakingDAO();
         this.lstSpeaking = speakingDAO.selectBySql(SpeakingDAO.SELECT_ALL_SPEAKING_IN_LESSON_QUERY, lesson.getIdLesson());
         if(this.lstSpeaking != null){
+            txtExample.setWrapText(true);
             this.lblTitle.setText(this.lstSpeaking.get(index).getTitle());
             this.lblContent.setText(this.lstSpeaking.get(index).getContent());
             byte[] audioData = Base64.getDecoder().decode(this.lstSpeaking.get(index).getExample());
@@ -158,6 +160,12 @@ public class SpeakingViewController {
             this.audioClip = new AudioClip(tempFile.toURI().toString());
            // this.audioClip = new AudioClip(new ByteArrayInputStream(this.lstSpeaking.get(index).getExample()).toString());
         }
+    }
+
+    private void clearScene(){
+        lblTitle.setText("");
+        lblContent.setText("");
+        audioClip = null;
     }
 
     private File createTempFileFromByteArray(byte[] data) {

@@ -105,7 +105,7 @@
                   </Label>
                </children>
             </Pane>
-            <TextArea fx:id="txtExample" editable="false" layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Lan:  How many people are there in your family?&#10;Gia đình con có bao nhiêu người?&#10;Hung: There are (four) people in my family…&#10;Dạ, nhà con có (bốn) người..." />
+            <TextArea fx:id="txtExample" editable="false" layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Hello, my name is.  Hi. I'm nice to meet you. I'm pleased to meet you. I'm.  It's a pleasure to see you. I'm.  May I introduce myself. I'm.  How do you do? My name is.  Let me introduce myself. I'm.  I'd like to introduce myself. I'm John. I'd like to introduce you to Mary.  John, please meet Mary John. I'd like you to meet Mary.  John, have you met Mary John, let me introduce you to Mary.  John, this is Mary. Mary, this is John.  Nice to meet you.  I'm pleased to meet you.  It's a pleasure to meet you.  Glad to meet you.  How do you do?" />
             <Button fx:id="btnListenExample" layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Listen example" />
             <Button fx:id="btnTalk" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Talk" />
             <Button fx:id="btnStopListen" layoutX="20.0" layoutY="192.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Stop listen" />
