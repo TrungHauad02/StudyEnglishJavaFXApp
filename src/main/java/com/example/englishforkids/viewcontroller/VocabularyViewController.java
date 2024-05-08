@@ -48,9 +48,13 @@ public class VocabularyViewController {
         String synonyms = getStringFromListVocabulary(vocabulary.getSynonyms());
         txtAntonyms.setText(antonyms);
         txtSynonyms.setText(synonyms);
-        byte[] decodedImage = Base64.getDecoder().decode(vocabulary.getImage());
-        Image image = new Image(new ByteArrayInputStream(decodedImage));
-        imgWord.setImage(image);
+        if(vocabulary.getImage()!=null){
+            byte[] decodedImage = Base64.getDecoder().decode(vocabulary.getImage());
+            Image image = new Image(new ByteArrayInputStream(decodedImage));
+            imgWord.setImage(image);
+        }else{
+            imgWord.setImage(null);
+        }
     }
     private String getStringFromListVocabulary(List<Vocabulary> lst){
         StringBuilder stringBuilder = new StringBuilder();
@@ -61,11 +65,11 @@ public class VocabularyViewController {
     }
     private void getAntonyms(){
         vocabulary.setAntonyms(vocabularyDAO.selectBySql(VocabularyDAO.SELECT_ALL_ANTONYMS_VOCABULARY_QUERY,
-                vocabulary.getIdVocabulary()));
+                vocabulary.getIdVocabulary(),vocabulary.getIdVocabulary()));
     }
 
     private void getSynonyms(){
         vocabulary.setSynonyms(vocabularyDAO.selectBySql(VocabularyDAO.SELECT_ALL_SYNONYMS_VOCABULARY_QUERY,
-                vocabulary.getIdVocabulary()));
+                vocabulary.getIdVocabulary(),vocabulary.getIdVocabulary()));
     }
 }

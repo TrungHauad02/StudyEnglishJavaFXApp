@@ -6,6 +6,7 @@ import com.example.englishforkids.feature.ChangeMainPane;
 import com.example.englishforkids.model.Lesson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,18 +28,52 @@ public class ListLessonViewController implements ChangeMainPane {
     Pane paneUsername;
     @FXML
     ImageView imgAvatar;
+    @FXML
+    Button btnNext;
+    @FXML
+    Button btnPrevious;
+    private List<List<Lesson>> lessonGroups;
+    private int currentGroupIndex;
     public void initialize() {
         MainViewController.createPaneUsername(lblUsername, paneUsername, imgAvatar);
 
         LessonDAO lessonDAO = new LessonDAO();
         List<Lesson> lstLesson = new LinkedList<Lesson>();
         lstLesson = lessonDAO.selectAll();
+        lessonGroups = new ArrayList<>();
+        for (int i = 0; i < lstLesson.size(); i += 12) {
+            int endIndex = Math.min(i + 12, lstLesson.size());
+            lessonGroups.add(new ArrayList<>(lstLesson.subList(i, endIndex)));
+        }
+        currentGroupIndex = 0;
+        displayLessonGroup(currentGroupIndex);
+
+        btnNext.setOnAction(event -> {
+            if (currentGroupIndex < lessonGroups.size() - 1) {
+                currentGroupIndex++;
+                displayLessonGroup(currentGroupIndex);
+            }
+        });
+
+        btnPrevious.setOnAction(event -> {
+            if (currentGroupIndex > 0) {
+                currentGroupIndex--;
+                displayLessonGroup(currentGroupIndex);
+            }
+        });
+    }
+
+    private void displayLessonGroup(int groupIndex) {
+        paneContainer.getChildren().clear();
+
+        List<Lesson> currentGroup = lessonGroups.get(groupIndex);
         double initialX = 228.0;
         double initialY = 69.0;
         double deltaX = 131.0;
         double deltaY = 111.0;
-        for (int i = 0; i < lstLesson.size() || i < 12; i++) {
-            Lesson lesson = lstLesson.get(i);
+
+        for (int i = 0; i < currentGroup.size(); i++) {
+            Lesson lesson = currentGroup.get(i);
             Pane lessonPane = createLessonPane(lesson);
 
             double layoutX = initialX + (i % 4) * deltaX;
