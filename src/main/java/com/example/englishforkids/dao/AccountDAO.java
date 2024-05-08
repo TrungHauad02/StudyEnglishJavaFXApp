@@ -10,9 +10,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class AccountDAO extends EngSysDAO<Account, String>{
-    private static final String SELECT_ACCOUNT_BY_USERNAME_PASSWORD_QUERY = "SELECT * FROM ACCOUNT WHERE Username = ? AND Password = ?";
+    private static final String SELECT_ACCOUNT_BY_USERNAME_PASSWORD_QUERY =
+                    "SELECT A.IdAccount ,A.Username, A.Password, A.Role " +
+                    "FROM ACCOUNT A " +
+                    "WHERE Username = ? AND Password = ?;";
     private static final String INSERT_ACCOUNT_QUERY = "INSERT INTO ACCOUNT(IdAccount, Username, Password, Role) VALUE (?,?,?,?)";
     private static final String UPDATE_ACCOUNT_QUERY = "UPDATE ACCOUNT SET Username = ?, Password = ?, Role = ? WHERE IdAccount = ?";
+    private static final String SELECT_ACCOUNT_BY_ID =
+            "SELECT A.IdAccount ,A.Username, A.Password, A.Role\n" +
+                    "FROM ACCOUNT A \n" +
+                    "WHERE IdAccount = ?";
 
     public boolean insert(Account entity){
         Connection connection = MySQLConnection.getConnection();
@@ -80,7 +87,30 @@ public class AccountDAO extends EngSysDAO<Account, String>{
     }
 
     public Account selectById(String id){
-        return null;
+        Account account = null;
+        Connection connection = MySQLConnection.getConnection();
+        if (connection != null) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ACCOUNT_BY_ID)) {
+                preparedStatement.setString(1, id);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    account = new Account();
+                    account.setIdAccount(resultSet.getString("IdAccount"));
+                    account.setUsername(resultSet.getString("Username"));
+                    account.setPassword(resultSet.getString("Password"));
+                    account.setRole(resultSet.getString("Role"));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return account;
     }
 
     public List<Account> selectAll(){

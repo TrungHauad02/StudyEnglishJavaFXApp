@@ -6,7 +6,6 @@ public class Lesson {
     private String idLesson;
     private String name;
     private String description;
-    private Date createDay;
     private LessonStatus status;
     private int serial;
     public enum LessonStatus {
@@ -37,14 +36,6 @@ public class Lesson {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getCreateDay() {
-        return createDay;
-    }
-
-    public void setCreateDay(Date createDay) {
-        this.createDay = createDay;
     }
 
     public LessonStatus getStatus() {

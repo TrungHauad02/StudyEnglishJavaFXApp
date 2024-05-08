@@ -53,8 +53,6 @@ CREATE TABLE SUBMITLESSON (
 
 CREATE TABLE LESSONPART (
     IdLessonPart CHAR(10) PRIMARY KEY,
-    Name VARCHAR(255),
-    Content VARCHAR(255),
     Type ENUM('vocabulary', 'listening','speaking','quiz', 'grammar'),
     IdLesson CHAR(10) NOT NULL,
     FOREIGN KEY (IdLesson) REFERENCES LESSON(IdLesson)

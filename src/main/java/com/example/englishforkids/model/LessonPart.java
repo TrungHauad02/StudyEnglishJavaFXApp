@@ -2,8 +2,6 @@ package com.example.englishforkids.model;
 
 public class LessonPart {
     private String idLessonPart;
-    private String name;
-    private String content;
     private LessonPartType type;
     private String idLesson;
 
@@ -21,22 +19,6 @@ public class LessonPart {
 
     public void setIdLessonPart(String idLessonPart) {
         this.idLessonPart = idLessonPart;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public LessonPartType getType() {

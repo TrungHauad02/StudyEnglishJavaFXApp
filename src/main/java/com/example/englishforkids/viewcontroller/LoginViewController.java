@@ -42,11 +42,11 @@ public class LoginViewController {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
         if (username.isEmpty() || password.isEmpty())
-            MessageBox.show("Error", "Username and passsword cannot null", Alert.AlertType.ERROR);
+            MessageBox.show("Lỗi", "Tài khoản và mật khẩu không được bỏ trống", Alert.AlertType.ERROR);
 
         Account curAccount = accountDAO.login(username, password);
         if(curAccount == null)
-            MessageBox.show("Error", "Username or password is wrong", Alert.AlertType.ERROR);
+            MessageBox.show("Lỗi", "Tài khoản và mật khẩu đã sai", Alert.AlertType.ERROR);
         CurrentUser curUser = CurrentUser.getInstance();
         curUser.setCurrentUser(userDAO.selectByIdAccount(curAccount.getIdAccount()));
 

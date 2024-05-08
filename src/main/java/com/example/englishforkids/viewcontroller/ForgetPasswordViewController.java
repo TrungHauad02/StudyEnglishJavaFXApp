@@ -39,9 +39,13 @@ public class ForgetPasswordViewController {
         btnUpdate.setDisable(true);
         btnSendOTP.setOnAction(e->{
             String email = txtEmail.getText().trim();
-            if(email.isEmpty()){
-               MessageBox.show("Lỗi", "Email không được bỏ trống", Alert.AlertType.ERROR);
+            if(!checkFormatEmail(email)){
+               MessageBox.show("Lỗi", "Email không được bỏ trống hoặc sai định dạng", Alert.AlertType.ERROR);
                return;
+            }
+            if (!checkEmailExists(email)){
+                MessageBox.show("Lỗi", "Email không tồn tại trên hệ thống", Alert.AlertType.ERROR);
+                return;
             }
             if(sendOTP(email)){
                 txtOTP.setEditable(true);
@@ -68,6 +72,7 @@ public class ForgetPasswordViewController {
         btnUpdate.setOnAction(e -> {
             String password = txtPassword.getText().trim();
             if(password.isEmpty()){
+                MessageBox.show("Lỗi", "Mật khẩu không được bỏ trống", Alert.AlertType.ERROR);
                 return;
             }
             UserDAO userDAO = new UserDAO();
@@ -76,6 +81,8 @@ public class ForgetPasswordViewController {
             Account account = accountDAO.selectById(user.getIdAccount());
             account.setPassword(password);
             accountDAO.update(account);
+
+            MessageBox.show("Thành công","Đổi mật khẩu thành công", Alert.AlertType.CONFIRMATION);
 
             ShowNewScene.close(e);
             FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
@@ -90,19 +97,32 @@ public class ForgetPasswordViewController {
         String port = "587";
         String userName = "trunghausender@gmail.com";
         String password = "dahk vatg lofa rqli";
-        String subject = "Change password OTP";
-        String message = "Do not share this otp "+ otp;
+        String subject = "English for kids OTP";
+        String message = "KHÔNG CHIA SẼ MÃ OTP CỦA BẠN!\nĐây là mã otp của bạn:"+ otp;
 
         try {
             EmailUtility.sendEmail(host, port, userName, password, email, subject, message);
             System.out.println("Email sent successfully!");
+            MessageBox.show("Thông báo","Email đã được gửi đi thành công", Alert.AlertType.CONFIRMATION);
         } catch (AddressException e) {
-            System.out.println("Invalid email address: " + e.getMessage());
+            System.out.println("Lỗi địa chỉ email: " + e.getMessage());
             return false;
         } catch (MessagingException e) {
-            System.out.println("Error sending email: " + e.getMessage());
+            System.out.println("Lỗi gửi email: " + e.getMessage());
             return false;
         }
         return true;
+    }
+
+    private boolean checkFormatEmail(String email){
+        if (email.isEmpty())
+            return false;
+        return email.toLowerCase().endsWith("@gmail.com");
+    }
+
+    private boolean checkEmailExists(String email){
+        UserDAO userDAO = new UserDAO();
+        User user = userDAO.selectByEmail(email.trim());
+        return user != null;
     }
 }
