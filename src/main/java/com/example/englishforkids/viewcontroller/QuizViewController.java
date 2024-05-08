@@ -103,6 +103,7 @@ public class QuizViewController implements ChangeMainPane {
         loadToggleGroup();
         loadQuestion();
         loadListQuestionPane();
+        startQuiz();
     }
     private void loadData(){
         Lesson lesson = LessonViewController.curLesson;
