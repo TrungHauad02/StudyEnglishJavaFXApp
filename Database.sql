@@ -305,6 +305,31 @@ END//
 
 DELIMITER ;
 
+DELIMITER //
+
+CREATE TRIGGER before_insert_lessonpart
+BEFORE INSERT ON LESSONPART
+FOR EACH ROW
+BEGIN
+    DECLARE last_id VARCHAR(10);
+    DECLARE last_number INT;
+
+    SELECT IdLessonPart INTO last_id
+    FROM LESSONPART
+    ORDER BY IdLessonPart DESC
+    LIMIT 1;
+
+    IF last_id IS NULL THEN
+        SET NEW.IdLessonPart = 'Lpart00001';
+    ELSE
+        SET last_number = CAST(SUBSTRING(last_id, 6) AS SIGNED) + 1;
+
+        SET NEW.IdLessonPart = CONCAT('Lpart', LPAD(last_number, 5, '0'));
+    END IF;
+END//
+
+DELIMITER ;
+
 
 -- Add data user
 INSERT INTO ACCOUNT (IdAccount, Username, Password, Role)
