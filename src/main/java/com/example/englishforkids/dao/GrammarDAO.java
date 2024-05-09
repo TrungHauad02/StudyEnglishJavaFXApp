@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class GrammarDAO extends EngSysDAO<Grammar, String>{
-    final public static String SELECT_ALL_GRAMMAR_IN_LESSON_QUERY =
+    public static final String SELECT_ALL_GRAMMAR_IN_LESSON_QUERY =
             "SELECT g.IdGrammar, g.Title, g.Content, g.Rule, g.Image, g.Example\n" +
                     "FROM GRAMMAR g\n" +
                     "JOIN GRAMMARPART gp ON g.IdGrammar = gp.IdGrammar\n" +

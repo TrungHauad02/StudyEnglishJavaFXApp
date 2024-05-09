@@ -255,6 +255,56 @@ END//
 
 DELIMITER ;
 
+DELIMITER //
+
+CREATE TRIGGER before_insert_lesson
+BEFORE INSERT ON Lesson
+FOR EACH ROW
+BEGIN
+    DECLARE last_id VARCHAR(10);
+    DECLARE last_number INT;
+
+    SELECT IdLesson INTO last_id
+    FROM Lesson
+    ORDER BY IdLesson DESC
+    LIMIT 1;
+
+    IF last_id IS NULL THEN
+        SET NEW.IdLesson = 'Less000001';
+    ELSE
+        SET last_number = CAST(SUBSTRING(last_id, 5) AS SIGNED) + 1;
+
+        SET NEW.IdLesson = CONCAT('Less', LPAD(last_number, 6, '0'));
+    END IF;
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_grammar
+BEFORE INSERT ON GRAMMAR
+FOR EACH ROW
+BEGIN
+    DECLARE last_id VARCHAR(10);
+    DECLARE last_number INT;
+
+    SELECT IdGrammar INTO last_id
+    FROM GRAMMAR
+    ORDER BY IdGrammar DESC
+    LIMIT 1;
+
+    IF last_id IS NULL THEN
+        SET NEW.IdGrammar = 'gram000001';
+    ELSE
+        SET last_number = CAST(SUBSTRING(last_id, 5) AS SIGNED) + 1;
+
+        SET NEW.IdGrammar = CONCAT('gram', LPAD(last_number, 6, '0'));
+    END IF;
+END//
+
+DELIMITER ;
+
 
 -- Add data user
 INSERT INTO ACCOUNT (IdAccount, Username, Password, Role)
