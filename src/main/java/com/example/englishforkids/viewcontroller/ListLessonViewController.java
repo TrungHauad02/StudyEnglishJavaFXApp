@@ -40,6 +40,10 @@ public class ListLessonViewController implements ChangeMainPane {
         LessonDAO lessonDAO = new LessonDAO();
         List<Lesson> lstLesson = new LinkedList<Lesson>();
         lstLesson = lessonDAO.selectAll();
+        for(Lesson lesson: lstLesson){
+            if(!lesson.getStatus().equals(Lesson.LessonStatus.UNLOCK))
+                lstLesson.remove(lesson);
+        }
         lessonGroups = new ArrayList<>();
         for (int i = 0; i < lstLesson.size(); i += 12) {
             int endIndex = Math.min(i + 12, lstLesson.size());
