@@ -63,10 +63,12 @@ public class SpeakingViewController {
         index = 0;
         loadScene();
         btnListenExample.setOnAction(event -> {
-            audioClip.play();
+            if(audioClip!=null)
+                audioClip.play();
         });
         btnStopListen.setOnAction(event -> {
-            audioClip.stop();
+            if(audioClip!=null)
+                audioClip.stop();
         });
         btnPrevious.setOnAction(event -> {
             if(index > 0){
