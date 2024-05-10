@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneVocabulary" prefHeight="316.0" prefWidth="482.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;"
-      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.englishforkids.viewcontroller.VocabularyViewController">
+<Pane fx:id="paneVocabulary" prefHeight="316.0" prefWidth="482.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.englishforkids.viewcontroller.VocabularyViewController">
    <children>
       <ImageView fx:id="imgWord" fitHeight="273.0" fitWidth="200.0" layoutX="268.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/db_res/Penguin.png" />
          </image>
       </ImageView>
-      <Label layoutX="22.0" layoutY="38.0" text="Word:">
+      <Label layoutX="13.0" layoutY="38.0" text="Từ vựng:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="82.0" text="Mean:">
+      <Label layoutX="13.0" layoutY="82.0" text="Ý nghĩa:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="131.0" text="Phonetic:">
+      <Label layoutX="13.0" layoutY="131.0" text="Phiên âm:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="182.0" text="Synonyms:">
+      <Label layoutX="13.0" layoutY="182.0" text="Đồng nghĩa:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="237.0" text="Antonyms:">
+      <Label layoutX="13.0" layoutY="237.0" text="Trái nghĩa:">
          <font>
             <Font size="18.0" />
          </font>

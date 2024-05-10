@@ -54,7 +54,7 @@ public class ListVocabularyViewController implements ChangeMainPane {
         tbcPhonetic.setCellValueFactory(new PropertyValueFactory<>("phonetic"));
 
         tbcDetail.setCellFactory(param -> new TableCell<>() {
-            private final Button detailButton = new Button("Detail");
+            private final Button detailButton = new Button("Chi tiết");
             {
                 detailButton.setStyle("-fx-background-color: transparent; -fx-underline: true;");
                 detailButton.setOnAction(event -> {

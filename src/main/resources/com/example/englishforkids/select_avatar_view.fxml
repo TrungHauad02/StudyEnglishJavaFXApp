@@ -15,9 +15,9 @@
       </ImageView>
       <Pane layoutX="32.0" layoutY="14.0" prefHeight="448.0" prefWidth="463.0" style="-fx-background-color: #8FC6C3; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #000000;">
          <children>
-            <Pane layoutX="151.0" layoutY="14.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #39A6E8; -fx-background-radius: 15; -fx-border-color: #000000; -fx-border-radius: 15;">
+            <Pane layoutX="105.0" layoutY="14.0" prefHeight="50.0" prefWidth="267.0" style="-fx-background-color: #39A6E8; -fx-background-radius: 15; -fx-border-color: #000000; -fx-border-radius: 15;">
                <children>
-                  <Label layoutX="32.0" layoutY="8.0" text="Chọn avatar" textFill="WHITE">
+                  <Label layoutX="32.0" layoutY="8.0" text="Chọn ảnh đại diện" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>

@@ -122,7 +122,7 @@
                   <TextField fx:id="txtAddress" layoutX="11.0" layoutY="25.0" prefHeight="25.0" prefWidth="270.0" style="-fx-background-color: #D9D9D9;" />
                </children>
             </Pane>
-            <Button fx:id="btnChooseAvatar" layoutX="89.0" layoutY="384.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" style="-fx-border-color: #000000;" text="Chọn avatar" textFill="#579ec9">
+            <Button fx:id="btnChooseAvatar" layoutX="79.0" layoutY="384.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-border-color: #000000;" text="Chọn ảnh đại diện" textFill="#579ec9">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

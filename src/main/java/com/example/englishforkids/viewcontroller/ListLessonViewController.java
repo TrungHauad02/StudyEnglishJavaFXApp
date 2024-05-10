@@ -99,7 +99,7 @@ public class ListLessonViewController implements ChangeMainPane {
         pane.setPrefSize(110.0, 98.0);
         pane.setStyle("-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;");
 
-        String nameLesson = "Lesson " + String.valueOf(lesson.getSerial());
+        String nameLesson = "Bài học " + String.valueOf(lesson.getSerial());
         Label labelNumber = new Label(nameLesson);
         labelNumber.setLayoutX(27.0);
         labelNumber.setLayoutY(39.0);

@@ -49,7 +49,7 @@ public class MainController {
             CurrentUser curUser = CurrentUser.getInstance();
             curUser.setCurrentUser(userDAO.selectByIdAccount(idAccount));
 
-            MessageBox.show("Notify","Login Successfully", Alert.AlertType.CONFIRMATION);
+            MessageBox.show("Thông báo","Đăng nhập thành công", Alert.AlertType.CONFIRMATION);
             ShowNewScene.close(event);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/main_view.fxml"));
             ShowNewScene.show(loader, "English for kids");
@@ -58,7 +58,7 @@ public class MainController {
 
         ShowNewScene.close(event);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/englishforkids/login_view.fxml"));
-        ShowNewScene.show(loader, "Login");
+        ShowNewScene.show(loader, "Đăng nhập");
     }
 
 }

@@ -106,7 +106,7 @@ public class SignupViewController {
         Stage stage = (Stage) paneMain.getScene().getWindow();
         stage.close();
         FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
-        ShowNewScene.show(loader, "Login");
+        ShowNewScene.show(loader, "Đăng nhập");
     }
     private void chooseAvatar(){
         try {
@@ -114,7 +114,7 @@ public class SignupViewController {
             Parent root = loader.load();
             SelectAvatarViewController controller = loader.getController();
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Choose Avatar");
+            dialogStage.setTitle("Chọn ảnh đại diện");
             Scene scene = new Scene(root, 531, 503);
             dialogStage.setScene(scene);
             dialogStage.initModality(Modality.APPLICATION_MODAL);
