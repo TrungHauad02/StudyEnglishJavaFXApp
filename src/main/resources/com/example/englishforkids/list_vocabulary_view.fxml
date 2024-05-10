@@ -42,10 +42,10 @@
       </Pane>
       <TableView fx:id="tbvListVocabulary" layoutX="29.0" layoutY="132.0" prefHeight="315.0" prefWidth="689.0">
          <columns>
-            <TableColumn fx:id="tbcWord" prefWidth="118.39998626708984" text="Word" />
-            <TableColumn fx:id="tbcMean" prefWidth="264.79998779296875" text="Mean" />
-            <TableColumn fx:id="tbcPhonetic" prefWidth="140.00003051757812" text="Phonetic" />
-            <TableColumn fx:id="tbcDetail" prefWidth="167.99993896484375" text="Detail" />
+            <TableColumn fx:id="tbcWord" prefWidth="118.39998626708984" text="Từ vựng" />
+            <TableColumn fx:id="tbcMean" prefWidth="264.79998779296875" text="Ý nghĩa" />
+            <TableColumn fx:id="tbcPhonetic" prefWidth="140.00003051757812" text="Phiên âm" />
+            <TableColumn fx:id="tbcDetail" prefWidth="167.99993896484375" text="Chi tiết" />
          </columns>
       </TableView>
       <Pane layoutX="30.0" layoutY="77.0" prefHeight="55.0" prefWidth="689.0" style="-fx-background-color: D9D9D9;">

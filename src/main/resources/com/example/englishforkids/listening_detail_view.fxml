@@ -23,7 +23,7 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="70.0" prefHeight="27.0" prefWidth="151.0" style="-fx-background-color: #C6A5D2; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #000000;">
          <children>
-            <Label layoutX="18.0" layoutY="5.0" text="Description">
+            <Label layoutX="18.0" layoutY="5.0" text="Mô tả">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

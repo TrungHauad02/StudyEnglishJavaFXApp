@@ -43,7 +43,7 @@
       <Pane layoutX="480.0" layoutY="397.0" />
       <Pane fx:id="paneLesson" layoutX="624.0" layoutY="18.0" prefHeight="98.0" prefWidth="110.0" style="-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;">
          <children>
-            <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Lesson" textFill="WHITE">
+            <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Bài học" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -84,7 +84,7 @@
             <Separator layoutX="1.0" layoutY="103.0" prefHeight="3.0" prefWidth="505.0" style="-fx-background-color: #000000;" />
             <Pane layoutX="11.0" layoutY="70.0" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #8FC6C3; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #000000;">
                <children>
-                  <Label layoutX="18.0" layoutY="5.0" text="Content">
+                  <Label layoutX="18.0" layoutY="5.0" text="Nội dung">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -98,7 +98,7 @@
             </Label>
             <Pane layoutX="14.0" layoutY="113.0" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #8FC6C3; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #000000;">
                <children>
-                  <Label layoutX="18.0" layoutY="5.0" text="Example">
+                  <Label layoutX="18.0" layoutY="5.0" text="Mẫu">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -106,18 +106,18 @@
                </children>
             </Pane>
             <TextArea fx:id="txtExample" editable="false" layoutX="138.0" layoutY="127.0" prefHeight="200.0" prefWidth="336.0" text="Hello, my name is.  Hi. I'm nice to meet you. I'm pleased to meet you. I'm.  It's a pleasure to see you. I'm.  May I introduce myself. I'm.  How do you do? My name is.  Let me introduce myself. I'm.  I'd like to introduce myself. I'm John. I'd like to introduce you to Mary.  John, please meet Mary John. I'd like you to meet Mary.  John, have you met Mary John, let me introduce you to Mary.  John, this is Mary. Mary, this is John.  Nice to meet you.  I'm pleased to meet you.  It's a pleasure to meet you.  Glad to meet you.  How do you do?" />
-            <Button fx:id="btnListenExample" layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Listen example" />
-            <Button fx:id="btnTalk" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Talk" />
-            <Button fx:id="btnStopListen" layoutX="20.0" layoutY="192.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Stop listen" />
-            <Button fx:id="btnStopTalk" layoutX="20.0" layoutY="290.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Stop talk" />
+            <Button fx:id="btnListenExample" layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Nghe mẫu" />
+            <Button fx:id="btnTalk" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Nói" />
+            <Button fx:id="btnStopListen" layoutX="20.0" layoutY="192.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Dừng nghe" />
+            <Button fx:id="btnStopTalk" layoutX="20.0" layoutY="290.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Dừng nói" />
          </children>
       </Pane>
-      <Button fx:id="btnNext" layoutX="633.0" layoutY="393.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+      <Button fx:id="btnNext" layoutX="633.0" layoutY="393.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Tiếp theo" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrevious" layoutX="633.0" layoutY="339.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="633.0" layoutY="339.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Trước" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

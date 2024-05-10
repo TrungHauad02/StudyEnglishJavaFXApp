@@ -102,7 +102,7 @@ public class ForgetPasswordViewController {
 
         try {
             EmailUtility.sendEmail(host, port, userName, password, email, subject, message);
-            System.out.println("Email sent successfully!");
+            System.out.println("Email gửi thành công!");
             MessageBox.show("Thông báo","Email đã được gửi đi thành công", Alert.AlertType.CONFIRMATION);
         } catch (AddressException e) {
             System.out.println("Lỗi địa chỉ email: " + e.getMessage());

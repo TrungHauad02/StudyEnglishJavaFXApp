@@ -44,7 +44,7 @@
       <Pane layoutX="480.0" layoutY="397.0" />
       <Pane fx:id="paneLesson" layoutX="624.0" layoutY="18.0" prefHeight="98.0" prefWidth="110.0" style="-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;">
          <children>
-            <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Lesson" textFill="WHITE">
+            <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Bài học" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Separator layoutY="46.400001525878906" opacity="0.56" prefHeight="0.0" prefWidth="539.0" style="-fx-background-color: #000000;" />
                   <Pane layoutY="60.0" prefHeight="146.0" prefWidth="535.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
                      <children>
-                        <Label layoutX="13.0" layoutY="3.0" text="Content">
+                        <Label layoutX="13.0" layoutY="3.0" text="Nội dung">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -91,17 +91,17 @@
                   </Pane>
                   <Pane layoutX="1.0" layoutY="211.0" prefHeight="63.0" prefWidth="534.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
                      <children>
-                        <Label layoutX="13.0" layoutY="3.0" text="Rule">
+                        <Label layoutX="13.0" layoutY="3.0" text="Nguyên tắc">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="txtRule" layoutX="50.0" layoutY="4.0" prefHeight="55.0" prefWidth="470.0" />
+                        <TextArea fx:id="txtRule" layoutX="103.0" layoutY="4.0" prefHeight="55.0" prefWidth="417.0" />
                      </children>
                   </Pane>
                   <Pane fx:id="paneImage" layoutY="284.0" prefHeight="350.0" prefWidth="540.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
                      <children>
-                        <Label layoutX="13.0" layoutY="3.0" text="Image">
+                        <Label layoutX="13.0" layoutY="3.0" text="Hình">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -115,7 +115,7 @@
                   </Pane>
                   <Pane layoutX="-1.0" layoutY="650.0" prefHeight="60.0" prefWidth="542.0" style="-fx-background-color: #80CD7B; -fx-background-radius: 30; -fx-border-radius: 30;">
                      <children>
-                        <Label layoutX="13.0" layoutY="3.0" text="Example">
+                        <Label layoutX="13.0" layoutY="3.0" text="Ví dụ">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -127,12 +127,12 @@
             </Pane>
          </content>
       </ScrollPane>
-      <Button fx:id="btnNext" layoutX="624.0" layoutY="391.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+      <Button fx:id="btnNext" layoutX="624.0" layoutY="391.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Tiếp theo" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrevious" layoutX="624.0" layoutY="337.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="624.0" layoutY="337.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Trước" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

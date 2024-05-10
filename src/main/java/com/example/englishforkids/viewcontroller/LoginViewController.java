@@ -58,7 +58,7 @@ public class LoginViewController {
             rememberLoginDAO.insert(rememberLogin);
         }
 
-        MessageBox.show("Notify", "Login Successfully", Alert.AlertType.CONFIRMATION);
+        MessageBox.show("Thành công", "Đăng nhập thành công.", Alert.AlertType.CONFIRMATION);
         ShowNewScene.close(event);
         FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("main_view.fxml"));
         ShowNewScene.show(loader, "English for kids");
@@ -72,13 +72,13 @@ public class LoginViewController {
             btnSignUp.setOnAction(e->{
                 ShowNewScene.close(e);
                 FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/signup_view.fxml"));
-                ShowNewScene.show(loader, "Sign Up");
+                ShowNewScene.show(loader, "Đăng ký");
             });
 
             btnForgetPassword.setOnAction(e -> {
                 ShowNewScene.close(e);
                 FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("/com/example/englishforkids/forget_password_view.fxml"));
-                ShowNewScene.show(loader, "Forget password");
+                ShowNewScene.show(loader, "Quên mật khẩu");
             });
 
         }catch (Exception ex){

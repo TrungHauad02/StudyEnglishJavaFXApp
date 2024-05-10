@@ -44,7 +44,7 @@ public class MainViewController implements PaneChangeListener {
             CurrentUser.getInstance().setCurrentUser(null);
             ShowNewScene.close(event);
             FXMLLoader loader = new FXMLLoader(GetResourceController.getFXMLResourcePath("login_view.fxml"));
-            ShowNewScene.show(loader,"Login");
+            ShowNewScene.show(loader,"Đăng nhập");
         });
     }
 

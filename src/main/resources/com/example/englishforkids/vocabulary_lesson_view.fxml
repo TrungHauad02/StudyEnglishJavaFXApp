@@ -39,7 +39,7 @@
       </Pane>
       <Pane fx:id="paneLesson" layoutX="624.0" layoutY="20.0" prefHeight="98.0" prefWidth="110.0" style="-fx-background-color: #D4C223; -fx-background-radius: 22; -fx-border-radius: 20; -fx-border-color: #ffffff; -fx-border-width: 5;">
          <children>
-            <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Lesson" textFill="WHITE">
+            <Label layoutX="12.0" layoutY="53.0" prefHeight="30.0" prefWidth="69.0" text="Bài học" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -58,42 +58,42 @@
                   <Image url="@../../../img/db_res/Penguin.png" />
                </image>
             </ImageView>
-            <Label layoutX="22.0" layoutY="38.0" text="Word:">
+            <Label layoutX="12.0" layoutY="38.0" text="Từ vựng:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="82.0" text="Mean:">
+            <Label layoutX="12.0" layoutY="82.0" text="Ý nghĩa:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="131.0" text="Phonetic:">
+            <Label layoutX="12.0" layoutY="131.0" text="Phiên âm:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="182.0" text="Synonyms:">
+            <Label layoutX="12.0" layoutY="182.0" text="Đồng nghĩa:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="237.0" text="Antonyms:">
+            <Label layoutX="12.0" layoutY="237.0" text="Trái nghĩa:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="txtWord" layoutX="132.0" layoutY="38.0" text="Penguin">
+            <Label fx:id="txtWord" layoutX="126.0" layoutY="38.0" text="Penguin">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="txtMean" layoutX="132.0" layoutY="82.0" text="Chim cánh cụt">
+            <Label fx:id="txtMean" layoutX="126.0" layoutY="82.0" text="Chim cánh cụt">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="txtPhonetic" layoutX="132.0" layoutY="131.0" text="/ˈpeŋ.ɡwɪn/">
+            <Label fx:id="txtPhonetic" layoutX="126.0" layoutY="131.0" text="/ˈpeŋ.ɡwɪn/">
                <font>
                   <Font size="18.0" />
                </font>
@@ -119,12 +119,12 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="btnNext" layoutX="627.0" layoutY="390.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Next" textFill="WHITE">
+      <Button fx:id="btnNext" layoutX="627.0" layoutY="390.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Tiếp theo" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrevious" layoutX="627.0" layoutY="336.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Previous" textFill="WHITE">
+      <Button fx:id="btnPrevious" layoutX="627.0" layoutY="336.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #20C6A9; -fx-border-color: #000000;" text="Trước" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

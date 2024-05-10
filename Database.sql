@@ -331,6 +331,56 @@ END//
 DELIMITER ;
 
 
+DELIMITER //
+
+CREATE TRIGGER before_insert_listening
+BEFORE INSERT ON LISTENING
+FOR EACH ROW
+BEGIN
+    DECLARE last_id VARCHAR(10);
+    DECLARE last_number INT;
+
+    SELECT IdListening INTO last_id
+    FROM LISTENING
+    ORDER BY IdListening DESC
+    LIMIT 1;
+
+    IF last_id IS NULL THEN
+        SET NEW.IdListening = 'List000006';
+    ELSE
+        SET last_number = CAST(SUBSTRING(last_id, 5) AS SIGNED) + 1;
+
+        SET NEW.IdListening = CONCAT('List', LPAD(last_number, 6, '0'));
+    END IF;
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_vocabulary
+BEFORE INSERT ON VOCABULARY
+FOR EACH ROW
+BEGIN
+    DECLARE last_id VARCHAR(10);
+    DECLARE last_number INT;
+
+    SELECT IdVocabulary INTO last_id
+    FROM VOCABULARY
+    ORDER BY IdVocabulary DESC
+    LIMIT 1;
+
+    IF last_id IS NULL THEN
+        SET NEW.IdVocabulary = 'V000000001';
+    ELSE
+        SET last_number = CAST(SUBSTRING(last_id, 2) AS SIGNED) + 1;
+
+        SET NEW.IdVocabulary = CONCAT('V', LPAD(last_number, 9, '0'));
+    END IF;
+END//
+
+DELIMITER ;
+
 -- Add data user
 INSERT INTO ACCOUNT (IdAccount, Username, Password, Role)
 VALUES ('acc0000001', '1', '1', 'student');
